@@ -69,11 +69,8 @@ const PathwaySelection = ({ onSelect }: { onSelect: (pathway: PathwayId) => void
   <div className="flex flex-col items-center text-center space-y-8 animate-fade-in">
     <div className="text-left w-full max-w-6xl">
         <h1 className="text-xl">
-            <span className="text-lime-400 font-bold">ima.</span> <span className="font-bold">Chantilly</span> — Tu espacio para aprender, mejorar y cuidar tu salud.
+            <span className="text-lime-400 font-bold">Bienvenido al portal de</span> <span className="font-bold">ima.</span>
         </h1>
-        <p className="text-lg text-muted-foreground mt-2">
-            Selecciona tu camino y deja que ima te acompañe.
-        </p>
     </div>
     <div className="grid grid-cols-1 gap-8 w-full max-w-6xl">
       {pathwaysData.map((path) => (
@@ -95,12 +92,9 @@ const PathwaySelection = ({ onSelect }: { onSelect: (pathway: PathwayId) => void
           />
           <div className="absolute inset-0 bg-black/50" />
           <div className="relative h-full flex items-center p-8 text-white">
-            <div className="flex items-center gap-4 text-left">
-              <path.icon className="w-8 h-8 opacity-70" />
-              <div>
-                <h3 className="text-2xl font-bold">{path.title}</h3>
-                <p className="text-sm opacity-90">{path.description}</p>
-              </div>
+            <div className="flex items-start text-left flex-col gap-2">
+              <h3 className="text-2xl font-bold">{path.title}</h3>
+              <p className="text-sm opacity-90">{path.description}</p>
             </div>
             <Button variant="accent" size="lg" className="absolute right-8 rounded-full">
               Entrar <ArrowRight className="ml-2 h-4 w-4" />
@@ -166,8 +160,15 @@ export default function Home() {
           <PathwaySelection onSelect={setSelectedPathwayId} />
         )}
       </main>
-      <footer className="py-8 text-center text-muted-foreground text-sm">
-        <p>&copy; {new Date().getFullYear()} Ima Health Navigator. Todos los derechos reservados.</p>
+      <footer className="w-full mt-24 py-8 border-t border-border">
+        <div className="container mx-auto text-center text-muted-foreground text-sm">
+          <p>
+            Si tienes alguna duda escríbenos al correo de soporte:{" "}
+            <a href="mailto:soporte@preguntaleaima.com" className="text-primary hover:underline">
+              soporte@preguntaleaima.com
+            </a>
+          </p>
+        </div>
       </footer>
     </div>
   );
