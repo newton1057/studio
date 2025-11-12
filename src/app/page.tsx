@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from "react";
@@ -283,7 +284,7 @@ export default function Home() {
       <footer className="w-full mt-24 py-8 border-t border-border">
         <div className="container mx-auto text-center text-muted-foreground text-sm px-4">
           <p>
-            Si tienes alguna duda escríbenos al correo de soporte:{" "}
+            <span style={{ color: '#656E6B' }}>Si tienes alguna duda escríbenos al correo de soporte: </span>
             <a href="mailto:soporte@preguntaleaima.com" className="text-primary hover:underline">
               soporte@preguntaleaima.com
             </a>
@@ -293,3 +294,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
