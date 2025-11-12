@@ -103,7 +103,7 @@ const PathwaySelection = ({ onSelect }: { onSelect: (pathway: PathwayId) => void
   <div className="flex flex-col items-center text-center space-y-8 animate-fade-in">
     <div className="w-full max-w-6xl text-left">
         <h1 className="text-xl">
-            <span className="font-bold text-lime-400">ima.</span> Bienvenido al portal <span className="font-bold">Chantilly x ima</span> — Tu espacio para aprender, mejorar y cuidar tu salud.
+            <span className="font-bold text-lime-400">ima.</span> Bienvenido al portal <span className="font-bold">del Dr. Sebastián Armida</span> — Tu espacio para aprender, mejorar y cuidar tu salud.
         </h1>
         <p className="mt-4 text-lg text-muted-foreground">
           Selecciona tu camino y deja que ima te acompañe.
@@ -114,7 +114,7 @@ const PathwaySelection = ({ onSelect }: { onSelect: (pathway: PathwayId) => void
         <Card
             key={path.id}
             onClick={() => onSelect(path.id)}
-            className="relative rounded-2xl overflow-hidden h-auto md:h-80 w-full group cursor-pointer transition-all duration-300 hover:shadow-2xl hover:shadow-primary/20 aspect-[16/9]"
+            className="relative rounded-2xl overflow-hidden h-auto md:h-96 w-full group cursor-pointer transition-all duration-300 hover:shadow-2xl hover:shadow-primary/20 aspect-[16/9]"
             role="button"
             tabIndex={0}
             onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') onSelect(path.id); }}
