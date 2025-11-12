@@ -150,7 +150,7 @@ const HealthPathwayContent = ({ videoContent, onBack }: { videoContent: Pathway[
     <div className="max-w-4xl mx-auto animate-fade-in">
        <div className="w-full max-w-6xl mx-auto mb-8">
         <h1 className="text-xl">
-            <span className="font-bold text-lime-400">ima.</span>
+            <span className="font-bold text-primary">ima.</span>
         </h1>
       </div>
       <div className="text-center mb-8">
@@ -158,7 +158,7 @@ const HealthPathwayContent = ({ videoContent, onBack }: { videoContent: Pathway[
         <p className="text-muted-foreground mt-2">{videoContent.mainVideo.description}</p>
       </div>
 
-      <Card className="overflow-hidden mb-12 border-2 border-lime-400/50 shadow-lg shadow-lime-400/10">
+      <Card className="overflow-hidden mb-12 border-2 border-primary/20 shadow-lg shadow-primary/10">
         <div className="relative aspect-video">
           <Image src={videoContent.mainVideo.imageUrl} alt="Video principal" fill className="object-cover" />
           <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
@@ -182,7 +182,7 @@ const HealthPathwayContent = ({ videoContent, onBack }: { videoContent: Pathway[
               <div className="p-4">
                 <h4 className="font-semibold text-foreground truncate">{tutorial.title}</h4>
                 <div className="flex items-center gap-2 mt-1 text-sm text-muted-foreground">
-                  <Video className="w-4 h-4 text-lime-400" />
+                  <Video className="w-4 h-4 text-primary" />
                   <span>{tutorial.duration}</span>
                 </div>
               </div>
