@@ -69,7 +69,7 @@ const PathwaySelection = ({ onSelect }: { onSelect: (pathway: PathwayId) => void
   <div className="flex flex-col items-center text-center space-y-8 animate-fade-in">
     <div className="text-left w-full max-w-6xl">
         <h1 className="text-xl">
-            <span className="text-lime-400 font-bold">ima.</span> Bienvenido al portal <span className="font-bold">Chantilly x ima</span> — Tu espacio para aprender, mejorar y cuidar tu salud.
+            <span className="text-lime-400 font-bold">ima.</span> <span className="font-bold">Chantilly</span> — Tu espacio para aprender, mejorar y cuidar tu salud.
         </h1>
         <p className="text-lg text-muted-foreground mt-2">
             Selecciona tu camino y deja que ima te acompañe.
@@ -102,7 +102,7 @@ const PathwaySelection = ({ onSelect }: { onSelect: (pathway: PathwayId) => void
                 <p className="text-sm opacity-90">{path.description}</p>
               </div>
             </div>
-            <Button variant="accent" size="lg" className="absolute right-8">
+            <Button variant="accent" size="lg" className="absolute right-8 rounded-full">
               Entrar <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </div>
