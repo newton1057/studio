@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Stethoscope, ArrowLeft, type LucideIcon, ArrowRight, LineChart, Users, PlayCircle, Video, Download } from "lucide-react";
+import { Stethoscope, ArrowLeft, type LucideIcon, ArrowRight, LineChart, Users, PlayCircle, Video, Download, Dumbbell } from "lucide-react";
 import Image from "next/image";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -73,9 +73,9 @@ const pathwaysData: Pathway[] = [
   },
   {
     id: "diagnosis",
-    title: "Tengo un diagnóstico",
-    icon: Users,
-    description: "Acompañamiento empático y herramientas prácticas.",
+    title: "Fisioterapia",
+    icon: Dumbbell,
+    description: "Recupera tu movimiento paso a paso con los tutoriales y el acompañamiento de ima.",
     image: PlaceHolderImages.find(img => img.id === 'doctor-phone')!,
     content: [
       { title: "Entiende tu condición", description: "Infórmate a través de fuentes confiables sobre tu diagnóstico, tratamiento y pronóstico." },
@@ -293,3 +293,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
