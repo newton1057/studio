@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { HeartPulse, Dumbbell, Stethoscope, ArrowLeft, type LucideIcon, ArrowRight, LineChart, Users, PlayCircle, Video, Download } from "lucide-react";
+import { Stethoscope, ArrowLeft, type LucideIcon, ArrowRight, LineChart, Users, PlayCircle, Video, Download } from "lucide-react";
 import Image from "next/image";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -48,9 +48,9 @@ interface Pathway {
 const pathwaysData: Pathway[] = [
   {
     id: "health",
-    title: "Quiero empezar a cuidar mi salud",
-    icon: HeartPulse,
-    description: "Hábitos, guía diaria y tips sencillos.",
+    title: "Post-operación",
+    icon: Stethoscope,
+    description: "Recupera tu movimiento paso a paso con los tutoriales y el acompañamiento de ima.",
     image: PlaceHolderImages.find(img => img.id === 'healthy-food')!,
     content: [],
     videoContent: {
@@ -102,8 +102,8 @@ const pathwaysData: Pathway[] = [
 const PathwaySelection = ({ onSelect }: { onSelect: (pathway: PathwayId) => void }) => (
   <div className="flex flex-col items-center text-center space-y-8 animate-fade-in">
     <div className="w-full max-w-6xl text-left">
-        <h1 className="text-xl">
-            <span className="font-bold text-lime-400">ima.</span> Bienvenido al portal <span className="font-bold">del Dr. Sebastián Armida</span> — Tu espacio para aprender, mejorar y cuidar tu salud.
+        <h1 className="text-xl md:text-2xl">
+            <span className="font-bold text-primary">ima.</span> Bienvenido al portal <span className="font-bold">del Dr. Sebastián Armida</span> — Tu espacio para aprender, mejorar y cuidar tu salud.
         </h1>
         <p className="mt-4 text-lg text-muted-foreground">
           Selecciona tu camino y deja que ima te acompañe.
@@ -293,3 +293,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
