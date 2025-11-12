@@ -110,12 +110,12 @@ const PathwaySelection = ({ onSelect }: { onSelect: (pathway: PathwayId) => void
           Selecciona tu camino y deja que ima te acompañe.
         </p>
     </div>
-    <div className="grid grid-cols-1 gap-8 w-full max-w-6xl pt-8">
+    <div className="grid grid-cols-1 gap-8 w-full max-w-6xl pt-4">
       {pathwaysData.map((path) => (
         <Card
             key={path.id}
             onClick={() => onSelect(path.id)}
-            className="relative rounded-2xl overflow-hidden h-auto md:h-64 w-full group cursor-pointer transition-all duration-300 hover:shadow-2xl shadow-[0_0_0_1px_hsl(var(--border))] hover:shadow-[0_10px_25px_-5px_hsl(var(--primary)/0.4),_0_8px_10px_-6px_hsl(var(--primary)/0.4)] aspect-[16/9] md:aspect-auto"
+            className="relative rounded-2xl overflow-hidden h-auto md:h-64 w-full group cursor-pointer transition-all duration-300 hover:shadow-2xl shadow-[0_0_0_1px_#B9DDE8] hover:shadow-[0_10px_25px_-5px_hsl(215_68%_29%/0.4),_0_8px_10px_-6px_hsl(215_68%_29%/0.4)] aspect-[16/9] md:aspect-auto"
             role="button"
             tabIndex={0}
             onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') onSelect(path.id); }}
@@ -162,7 +162,7 @@ const HealthPathwayContent = ({ videoContent, onBack }: { videoContent: Pathway[
       <Card className="overflow-hidden mb-12 border-2 border-primary/20 shadow-lg shadow-primary/10">
         <div className="relative aspect-video">
           <Image src={videoContent.mainVideo.imageUrl} alt="Video principal" fill className="object-cover" />
-          <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+          <div className="absolute inset-0 bg-black/30 flex items-center justify-center border-2 border-[#B9DDE8]">
             <PlayCircle className="w-16 h-16 md:w-20 md:h-20 text-white/70 hover:text-white transition-colors cursor-pointer hover:scale-110 duration-300" />
           </div>
         </div>
@@ -180,11 +180,11 @@ const HealthPathwayContent = ({ videoContent, onBack }: { videoContent: Pathway[
                 </div>
                 <div className="absolute bottom-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded-md">{tutorial.duration}</div>
               </div>
-              <div className="p-4">
-                <h4 className="font-semibold truncate" style={{ color: '#2A97B0' }}>{tutorial.title}</h4>
+              <div className="p-4 bg-[#2A97B0]">
+                <h4 className="font-semibold truncate" style={{ color: '#FFFFFF' }}>{tutorial.title}</h4>
                 <div className="flex items-center gap-2 mt-1 text-sm text-muted-foreground">
-                  <Video className="w-4 h-4" style={{ color: '#2A97B0' }} />
-                  <span>{tutorial.duration}</span>
+                  <Video className="w-4 h-4" style={{ color: '#FFFFFF' }} />
+                  <span style={{ color: '#FFFFFF' }}>{tutorial.duration}</span>
                 </div>
               </div>
             </Card>
@@ -294,7 +294,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
-
-    
