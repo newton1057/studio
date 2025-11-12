@@ -156,7 +156,7 @@ const HealthPathwayContent = ({ videoContent, onBack }: { videoContent: Pathway[
       </div>
       <div className="text-center mb-8">
         <h2 className="text-2xl md:text-3xl font-bold" style={{ color: '#2A97B0' }}>{videoContent.mainVideo.title}</h2>
-        <p className="text-muted-foreground mt-2">{videoContent.mainVideo.description}</p>
+        <p className="text-muted-foreground mt-2" style={{ color: '#656E6B' }}>{videoContent.mainVideo.description}</p>
       </div>
 
       <Card className="overflow-hidden mb-12 border-2 border-primary/20 shadow-lg shadow-primary/10">
@@ -294,5 +294,7 @@ export default function Home() {
     </div>
   );
 }
+
+    
 
     
