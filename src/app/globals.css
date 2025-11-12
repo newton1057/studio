@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -43,38 +39,38 @@ body {
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
   .dark {
-    --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
-    --secondary: 0 0% 14.9%;
+    --background: 202 21% 11%;
+    --foreground: 0 0% 96%;
+    --card: 202 21% 14%;
+    --card-foreground: 0 0% 96%;
+    --popover: 202 21% 11%;
+    --popover-foreground: 0 0% 96%;
+    --primary: 81 48% 82%;
+    --primary-foreground: 202 21% 11%;
+    --secondary: 202 21% 25%;
     --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 14.9%;
+    --muted: 202 21% 25%;
     --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 14.9%;
+    --accent: 202 21% 25%;
     --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 0% 83.1%;
+    --border: 202 21% 20%;
+    --input: 202 21% 20%;
+    --ring: 81 48% 82%;
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 202 21% 11%;
+    --sidebar-foreground: 0 0% 96%;
+    --sidebar-primary: 81 48% 82%;
+    --sidebar-primary-foreground: 202 21% 11%;
+    --sidebar-accent: 202 21% 25%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 202 21% 20%;
+    --sidebar-ring: 81 48% 82%;
   }
 }
 
@@ -84,5 +80,7 @@ body {
   }
   body {
     @apply bg-background text-foreground;
+    background-image: radial-gradient(circle at 1px 1px, hsl(var(--border) / 0.1) 1px, transparent 0);
+    background-size: 2rem 2rem;
   }
 }
