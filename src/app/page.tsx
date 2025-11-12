@@ -150,12 +150,12 @@ const HealthPathwayContent = ({ videoContent, onBack }: { videoContent: Pathway[
   return (
     <div className="max-w-4xl mx-auto animate-fade-in">
        <div className="w-full max-w-6xl mx-auto mb-8">
-        <h1 className="text-xl">
-            <span className="font-bold text-primary">ima.</span>
+        <h1 className="text-xl" style={{ color: '#2A97B0' }}>
+            <span className="font-bold">ima.</span>
         </h1>
       </div>
       <div className="text-center mb-8">
-        <h2 className="text-2xl md:text-3xl font-bold text-primary">{videoContent.mainVideo.title}</h2>
+        <h2 className="text-2xl md:text-3xl font-bold" style={{ color: '#2A97B0' }}>{videoContent.mainVideo.title}</h2>
         <p className="text-muted-foreground mt-2">{videoContent.mainVideo.description}</p>
       </div>
 
@@ -169,7 +169,7 @@ const HealthPathwayContent = ({ videoContent, onBack }: { videoContent: Pathway[
       </Card>
 
       <div className="mb-12">
-        <h3 className="text-xl md:text-2xl font-bold mb-6">Tutoriales</h3>
+        <h3 className="text-xl md:text-2xl font-bold mb-6" style={{ color: '#2A97B0' }}>Tutoriales</h3>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
           {videoContent.tutorials.map((tutorial, index) => (
             <Card key={index} className="overflow-hidden group cursor-pointer transition-shadow duration-300 hover:shadow-xl hover:shadow-primary/10">
@@ -181,9 +181,9 @@ const HealthPathwayContent = ({ videoContent, onBack }: { videoContent: Pathway[
                 <div className="absolute bottom-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded-md">{tutorial.duration}</div>
               </div>
               <div className="p-4">
-                <h4 className="font-semibold text-foreground truncate">{tutorial.title}</h4>
+                <h4 className="font-semibold truncate" style={{ color: '#2A97B0' }}>{tutorial.title}</h4>
                 <div className="flex items-center gap-2 mt-1 text-sm text-muted-foreground">
-                  <Video className="w-4 h-4 text-primary" />
+                  <Video className="w-4 h-4" style={{ color: '#2A97B0' }} />
                   <span>{tutorial.duration}</span>
                 </div>
               </div>
@@ -193,7 +193,7 @@ const HealthPathwayContent = ({ videoContent, onBack }: { videoContent: Pathway[
       </div>
 
       <div>
-        <h3 className="text-xl md:text-2xl font-bold mb-6">Recursos descargables</h3>
+        <h3 className="text-xl md:text-2xl font-bold mb-6" style={{ color: '#2A97B0' }}>Recursos descargables</h3>
         <div className="space-y-4">
           {videoContent.resources.map((resource, index) => (
             <Card key={index} className="flex flex-col sm:flex-row items-start sm:items-center justify-between p-4 transition-all duration-300 hover:bg-accent/20 hover:shadow-md hover:border-primary/30 gap-4">
@@ -202,7 +202,7 @@ const HealthPathwayContent = ({ videoContent, onBack }: { videoContent: Pathway[
                   <Download className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-foreground">{resource.title}</h4>
+                  <h4 className="font-semibold" style={{ color: '#2A97B0' }}>{resource.title}</h4>
                   <p className="text-sm text-muted-foreground">{resource.description}</p>
                 </div>
               </div>
