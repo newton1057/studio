@@ -67,9 +67,9 @@ const pathwaysData: Pathway[] = [
 
 const PathwaySelection = ({ onSelect }: { onSelect: (pathway: PathwayId) => void }) => (
   <div className="flex flex-col items-center text-center space-y-8 animate-fade-in">
-    <div>
-        <h1 className="text-3xl font-bold">
-            <span className="text-lime-400">ima.</span> Bienvenido al portal <span className="font-bold">Chantilly x ima</span> — Tu espacio para aprender, mejorar y cuidar tu salud.
+    <div className="text-left w-full max-w-6xl">
+        <h1 className="text-xl">
+            <span className="text-lime-400 font-bold">ima.</span> Bienvenido al portal <span className="font-bold">Chantilly x ima</span> — Tu espacio para aprender, mejorar y cuidar tu salud.
         </h1>
         <p className="text-lg text-muted-foreground mt-2">
             Selecciona tu camino y deja que ima te acompañe.
