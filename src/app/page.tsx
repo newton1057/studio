@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { HeartPulse, Dumbbell, Stethoscope, ArrowLeft, type LucideIcon, ArrowRight, LineChart, Users, PlayCircle, Video } from "lucide-react";
+import { HeartPulse, Dumbbell, Stethoscope, ArrowLeft, type LucideIcon, ArrowRight, LineChart, Users, PlayCircle, Video, Download } from "lucide-react";
 import Image from "next/image";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -22,6 +22,11 @@ interface Tutorial {
   imageUrl: string;
 }
 
+interface DownloadableResource {
+  title: string;
+  description: string;
+}
+
 interface Pathway {
   id: PathwayId;
   title: string;
@@ -36,6 +41,7 @@ interface Pathway {
       imageUrl: string;
     };
     tutorials: Tutorial[];
+    resources: DownloadableResource[];
   };
 }
 
@@ -57,6 +63,11 @@ const pathwaysData: Pathway[] = [
         { title: "Cómo registrar tus hábitos", duration: "2:40", imageUrl: "https://picsum.photos/seed/tut1/400/225" },
         { title: "Tu primer imá Score", duration: "2:30", imageUrl: "https://picsum.photos/seed/tut2/400/225" },
         { title: "Bitácora médica", duration: "1:30", imageUrl: "https://picsum.photos/seed/tut3/400/225" },
+      ],
+      resources: [
+        { title: "Guía de inicio rápido", description: "Un PDF con los conceptos básicos para empezar a usar la app." },
+        { title: "Plan de alimentación semanal", description: "Ejemplo de un plan de comidas saludables para una semana." },
+        { title: "Rutina de ejercicios en casa", description: "Una rutina de ejercicios que puedes hacer sin equipo especial." },
       ],
     },
   },
@@ -156,7 +167,7 @@ const HealthPathwayContent = ({ videoContent, onBack }: { videoContent: Pathway[
         </div>
       </Card>
 
-      <div>
+      <div className="mb-12">
         <h3 className="text-2xl font-bold mb-6">Tutoriales</h3>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
           {videoContent.tutorials.map((tutorial, index) => (
@@ -179,6 +190,30 @@ const HealthPathwayContent = ({ videoContent, onBack }: { videoContent: Pathway[
           ))}
         </div>
       </div>
+
+      <div>
+        <h3 className="text-2xl font-bold mb-6">Recursos descargables</h3>
+        <div className="space-y-4">
+          {videoContent.resources.map((resource, index) => (
+            <Card key={index} className="flex items-center justify-between p-4">
+              <div className="flex items-center gap-4">
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-accent/30 text-primary flex items-center justify-center">
+                  <Download className="w-5 h-5" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-foreground">{resource.title}</h4>
+                  <p className="text-sm text-muted-foreground">{resource.description}</p>
+                </div>
+              </div>
+              <Button variant="outline" size="sm">
+                Descargar
+                <Download className="ml-2 h-4 w-4" />
+              </Button>
+            </Card>
+          ))}
+        </div>
+      </div>
+
        <Button variant="ghost" onClick={onBack} className="mt-12 text-primary hover:text-primary/80 hover:bg-accent/50">
         <ArrowLeft className="mr-2 h-4 w-4" /> Volver a los caminos
       </Button>
