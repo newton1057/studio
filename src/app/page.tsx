@@ -109,7 +109,7 @@ const PathwaySelection = ({ onSelect }: { onSelect: (pathway: PathwayId) => void
           Selecciona tu camino y deja que ima te acompañe.
         </p>
     </div>
-    <div className="grid grid-cols-1 gap-8 w-full max-w-4xl pt-8">
+    <div className="grid grid-cols-1 gap-8 w-full max-w-6xl pt-8">
       {pathwaysData.map((path) => (
         <Card
             key={path.id}
