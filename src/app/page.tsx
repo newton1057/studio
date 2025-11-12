@@ -109,12 +109,12 @@ const PathwaySelection = ({ onSelect }: { onSelect: (pathway: PathwayId) => void
           Selecciona tu camino y deja que ima te acompañe.
         </p>
     </div>
-    <div className="grid grid-cols-1 gap-8 w-full max-w-6xl pt-8">
+    <div className="grid grid-cols-1 gap-8 w-full max-w-4xl pt-8">
       {pathwaysData.map((path) => (
         <Card
             key={path.id}
             onClick={() => onSelect(path.id)}
-            className="relative rounded-2xl overflow-hidden h-auto md:h-96 w-full group cursor-pointer transition-all duration-300 hover:shadow-2xl shadow-border/20 hover:shadow-border/40 aspect-[16/9]"
+            className="relative rounded-2xl overflow-hidden h-auto md:h-64 w-full group cursor-pointer transition-all duration-300 hover:shadow-2xl shadow-border/20 hover:shadow-border/40 aspect-[16/9] md:aspect-auto"
             role="button"
             tabIndex={0}
             onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') onSelect(path.id); }}
