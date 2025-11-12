@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { HeartPulse, Dumbbell, Stethoscope, ArrowLeft, type LucideIcon, ArrowRight, LineChart, Users } from "lucide-react";
+import { HeartPulse, Dumbbell, Stethoscope, ArrowLeft, type LucideIcon, ArrowRight, LineChart, Users, PlayCircle, Video } from "lucide-react";
 import Image from "next/image";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -11,16 +11,32 @@ import { PlaceHolderImages, type ImagePlaceholder } from "@/lib/placeholder-imag
 
 type PathwayId = "health" | "sports" | "diagnosis";
 
+interface PathwayContentItem {
+  title: string;
+  description: string;
+}
+
+interface Tutorial {
+  title: string;
+  duration: string;
+  imageUrl: string;
+}
+
 interface Pathway {
   id: PathwayId;
   title: string;
   icon: LucideIcon;
   description: string;
   image: ImagePlaceholder;
-  content: {
-    title: string;
-    description: string;
-  }[];
+  content: PathwayContentItem[];
+  videoContent?: {
+    mainVideo: {
+      title: string;
+      description: string;
+      imageUrl: string;
+    };
+    tutorials: Tutorial[];
+  };
 }
 
 const pathwaysData: Pathway[] = [
@@ -30,12 +46,19 @@ const pathwaysData: Pathway[] = [
     icon: HeartPulse,
     description: "Hábitos, guía diaria y tips sencillos.",
     image: PlaceHolderImages.find(img => img.id === 'healthy-food')!,
-    content: [
-      { title: "Evaluación inicial", description: "Entiende tu punto de partida. Realiza un chequeo médico y evalúa tus hábitos actuales." },
-      { title: "Nutrición consciente", description: "Aprende los principios de una alimentación balanceada y cómo aplicarlos en tu día a día." },
-      { title: "Actividad física regular", description: "Encuentra una actividad que disfrutes y conviértela en parte de tu rutina semanal." },
-      { title: "Descanso y manejo del estrés", description: "La recuperación es clave. Prioriza un sueño de calidad y aprende técnicas de relajación." },
-    ],
+    content: [],
+    videoContent: {
+      mainVideo: {
+        title: "Bienvenido a tu camino de bienestar con ima",
+        description: "Descubre cómo pequeños pasos pueden transformar tu salud.",
+        imageUrl: "https://picsum.photos/seed/main-video/800/450",
+      },
+      tutorials: [
+        { title: "Cómo registrar tus hábitos", duration: "2:40", imageUrl: "https://picsum.photos/seed/tut1/400/225" },
+        { title: "Tu primer imá Score", duration: "2:30", imageUrl: "https://picsum.photos/seed/tut2/400/225" },
+        { title: "Bitácora médica", duration: "1:30", imageUrl: "https://picsum.photos/seed/tut3/400/225" },
+      ],
+    },
   },
   {
     id: "sports",
@@ -67,16 +90,15 @@ const pathwaysData: Pathway[] = [
 
 const PathwaySelection = ({ onSelect }: { onSelect: (pathway: PathwayId) => void }) => (
   <div className="flex flex-col items-center text-center space-y-8 animate-fade-in">
-    <div className="w-full max-w-6xl text-left">
-      <h1 className="text-xl">
-        <span className="font-bold text-lime-400">ima.</span> Bienvenido al portal{" "}
-        <span className="font-bold">Chantilly x ima</span> — Tu espacio para aprender, mejorar y cuidar tu salud.
-      </h1>
-      <p className="mt-2 text-muted-foreground">
-        Selecciona tu camino y deja que ima te acompañe.
-      </p>
+    <div className="w-full max-w-6xl text-center">
+        <h1 className="text-4xl font-bold tracking-tight">
+          Tu espacio para <span className="text-lime-400">potenciar tu bienestar</span>
+        </h1>
+        <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
+          Selecciona tu camino y deja que ima te acompañe a transformar tu salud con herramientas y guías personalizadas.
+        </p>
     </div>
-    <div className="grid grid-cols-1 gap-8 w-full max-w-6xl">
+    <div className="grid grid-cols-1 gap-8 w-full max-w-6xl pt-8">
       {pathwaysData.map((path) => (
         <Card
             key={path.id}
@@ -110,7 +132,62 @@ const PathwaySelection = ({ onSelect }: { onSelect: (pathway: PathwayId) => void
   </div>
 );
 
-const PathwayContent = ({ pathway, onBack }: { pathway: Pathway, onBack: () => void }) => {
+const HealthPathwayContent = ({ videoContent, onBack }: { videoContent: Pathway['videoContent'], onBack: () => void }) => {
+  if (!videoContent) return null;
+
+  return (
+    <div className="max-w-4xl mx-auto animate-fade-in">
+       <div className="w-full max-w-6xl mx-auto mb-8">
+        <h1 className="text-xl">
+            <span className="font-bold text-lime-400">ima.</span>
+        </h1>
+      </div>
+      <div className="text-center mb-8">
+        <h2 className="text-3xl font-bold text-primary">{videoContent.mainVideo.title}</h2>
+        <p className="text-muted-foreground mt-2">{videoContent.mainVideo.description}</p>
+      </div>
+
+      <Card className="overflow-hidden mb-12 border-2 border-lime-400/50 shadow-lg shadow-lime-400/10">
+        <div className="relative aspect-video">
+          <Image src={videoContent.mainVideo.imageUrl} alt="Video principal" fill className="object-cover" />
+          <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+            <PlayCircle className="w-20 h-20 text-white/70 hover:text-white transition-colors cursor-pointer" />
+          </div>
+        </div>
+      </Card>
+
+      <div>
+        <h3 className="text-2xl font-bold mb-6">Tutoriales</h3>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+          {videoContent.tutorials.map((tutorial, index) => (
+            <Card key={index} className="overflow-hidden group cursor-pointer">
+              <div className="relative aspect-video">
+                <Image src={tutorial.imageUrl} alt={tutorial.title} fill className="object-cover transition-transform duration-300 group-hover:scale-105" />
+                <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                  <PlayCircle className="w-12 h-12 text-white/80" />
+                </div>
+                <div className="absolute bottom-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded-md">{tutorial.duration}</div>
+              </div>
+              <div className="p-4">
+                <h4 className="font-semibold text-foreground truncate">{tutorial.title}</h4>
+                <div className="flex items-center gap-2 mt-1 text-sm text-muted-foreground">
+                  <Video className="w-4 h-4 text-lime-400" />
+                  <span>{tutorial.duration}</span>
+                </div>
+              </div>
+            </Card>
+          ))}
+        </div>
+      </div>
+       <Button variant="ghost" onClick={onBack} className="mt-12 text-primary hover:text-primary/80 hover:bg-accent/50">
+        <ArrowLeft className="mr-2 h-4 w-4" /> Volver a los caminos
+      </Button>
+    </div>
+  );
+};
+
+
+const DefaultPathwayContent = ({ pathway, onBack }: { pathway: Pathway, onBack: () => void }) => {
   return (
     <div className="max-w-4xl mx-auto animate-fade-in">
       <Button variant="ghost" onClick={onBack} className="mb-8 text-primary hover:text-primary/80 hover:bg-accent/50">
@@ -159,7 +236,11 @@ export default function Home() {
     <div className="bg-background min-h-screen text-foreground selection:bg-primary selection:text-primary-foreground">
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20 lg:py-24">
         {selectedPathway ? (
-          <PathwayContent pathway={selectedPathway} onBack={() => setSelectedPathwayId(null)} />
+          selectedPathway.id === 'health' ? (
+            <HealthPathwayContent videoContent={selectedPathway.videoContent} onBack={() => setSelectedPathwayId(null)} />
+          ) : (
+            <DefaultPathwayContent pathway={selectedPathway} onBack={() => setSelectedPathwayId(null)} />
+          )
         ) : (
           <PathwaySelection onSelect={setSelectedPathwayId} />
         )}
