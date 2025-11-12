@@ -100,7 +100,7 @@ const pathwaysData: Pathway[] = [
 ];
 
 const PathwaySelection = ({ onSelect }: { onSelect: (pathway: PathwayId) => void }) => (
-  <div className="flex flex-col items-center text-center space-y-8 animate-fade-in">
+  <div className="flex flex-col items-center text-center space-y-4 animate-fade-in">
     <div className="w-full max-w-6xl text-left">
         <h1 className="text-xl md:text-2xl" style={{ color: '#2A97B0' }}>
             <span className="font-bold" style={{ color: '#2A97B0' }}>ima.</span> Bienvenido al portal <span className="font-bold">del Dr. Sebastián Armida</span> — Tu espacio para aprender, mejorar y cuidar tu salud.
