@@ -1,3 +1,22 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "healthy-food",
+      "description": "A top-down view of a table filled with various healthy food items like salads, fruits, and grains.",
+      "imageUrl": "https://images.unsplash.com/photo-1498837167922-ddd27525d352?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxoZWFsdGh5JTIwZm9vZHxlbnwwfHx8fDE3NjI5MTkwMDV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "healthy food"
+    },
+    {
+      "id": "runners",
+      "description": "A smiling man and woman running on a beach path at sunset, with palm trees in the background.",
+      "imageUrl": "https://images.unsplash.com/photo-1532444458054-01a7dd3e9fca?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxwZW9wbGUlMjBydW5uaW5nfGVufDB8fHx8MTc2Mjk2NzQxMHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "people running"
+    },
+    {
+      "id": "doctor-phone",
+      "description": "A close-up shot of a doctor in a lab coat looking at a smartphone.",
+      "imageUrl": "https://images.unsplash.com/photo-1586162545405-c88b69de987b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxkb2N0b3IlMjBzbWFydHBob25lfGVufDB8fHx8MTc2Mjk2NzQxMHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "doctor smartphone"
+    }
+  ]
 }

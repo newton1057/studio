@@ -1,10 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { HeartPulse, Dumbbell, Stethoscope, ArrowLeft, type LucideIcon } from "lucide-react";
+import { HeartPulse, Dumbbell, Stethoscope, ArrowLeft, type LucideIcon, ArrowRight, LineChart, Users } from "lucide-react";
+import Image from "next/image";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import { PlaceHolderImages, type ImagePlaceholder } from "@/lib/placeholder-images";
+
 
 type PathwayId = "health" | "sports" | "diagnosis";
 
@@ -13,6 +16,7 @@ interface Pathway {
   title: string;
   icon: LucideIcon;
   description: string;
+  image: ImagePlaceholder;
   content: {
     title: string;
     description: string;
@@ -22,9 +26,10 @@ interface Pathway {
 const pathwaysData: Pathway[] = [
   {
     id: "health",
-    title: "Empezar a cuidar mi salud",
+    title: "Quiero empezar a cuidar mi salud",
     icon: HeartPulse,
-    description: "Guía para iniciar un estilo de vida más saludable, paso a paso.",
+    description: "Hábitos, guía diaria y tips sencillos.",
+    image: PlaceHolderImages.find(img => img.id === 'healthy-food')!,
     content: [
       { title: "Evaluación inicial", description: "Entiende tu punto de partida. Realiza un chequeo médico y evalúa tus hábitos actuales." },
       { title: "Nutrición consciente", description: "Aprende los principios de una alimentación balanceada y cómo aplicarlos en tu día a día." },
@@ -34,9 +39,10 @@ const pathwaysData: Pathway[] = [
   },
   {
     id: "sports",
-    title: "Tengo un objetivo deportivo",
-    icon: Dumbbell,
-    description: "Planificación y recursos para alcanzar tus metas deportivas, desde amateur hasta profesional.",
+    title: "Tengo una meta deportiva",
+    icon: LineChart,
+    description: "Plan, progreso y motivación con High Performance.",
+    image: PlaceHolderImages.find(img => img.id === 'runners')!,
     content: [
       { title: "Define tu objetivo", description: "Establece una meta clara, específica y medible. ¿Qué quieres lograr y para cuándo?" },
       { title: "Plan de entrenamiento", description: "Diseña un programa de entrenamiento progresivo y adaptado a tu disciplina deportiva." },
@@ -47,8 +53,9 @@ const pathwaysData: Pathway[] = [
   {
     id: "diagnosis",
     title: "Tengo un diagnóstico",
-    icon: Stethoscope,
-    description: "Acompañamiento y herramientas para manejar una condición de salud específica.",
+    icon: Users,
+    description: "Acompañamiento empático y herramientas prácticas.",
+    image: PlaceHolderImages.find(img => img.id === 'doctor-phone')!,
     content: [
       { title: "Entiende tu condición", description: "Infórmate a través de fuentes confiables sobre tu diagnóstico, tratamiento y pronóstico." },
       { title: "Adherencia al tratamiento", description: "Sigue las indicaciones de tu equipo de salud y no dudes en consultar tus dudas." },
@@ -59,28 +66,46 @@ const pathwaysData: Pathway[] = [
 ];
 
 const PathwaySelection = ({ onSelect }: { onSelect: (pathway: PathwayId) => void }) => (
-  <div className="flex flex-col items-center text-center space-y-4 md:space-y-8 animate-fade-in">
-    <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight">
-      Ima Health Navigator
-    </h1>
-    <p className="text-lg md:text-xl text-muted-foreground max-w-2xl">
-      Descubre el camino hacia tu bienestar. Selecciona una opción para comenzar tu viaje personalizado hacia una mejor salud.
-    </p>
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 pt-8 md:pt-12 w-full max-w-6xl">
+  <div className="flex flex-col items-center text-center space-y-8 animate-fade-in">
+    <div>
+        <h1 className="text-3xl font-bold">
+            <span className="text-lime-400">ima.</span> Bienvenido al portal <span className="font-bold">Chantilly x ima</span> — Tu espacio para aprender, mejorar y cuidar tu salud.
+        </h1>
+        <p className="text-lg text-muted-foreground mt-2">
+            Selecciona tu camino y deja que ima te acompañe.
+        </p>
+    </div>
+    <div className="grid grid-cols-1 gap-8 w-full max-w-6xl">
       {pathwaysData.map((path) => (
         <Card
-          key={path.id}
-          onClick={() => onSelect(path.id)}
-          className="bg-card/50 border-border p-6 md:p-8 flex flex-col items-center justify-center text-center gap-4 hover:bg-accent/50 hover:border-primary cursor-pointer transition-all duration-300 transform hover:-translate-y-2 group"
-          role="button"
-          tabIndex={0}
-          onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') onSelect(path.id); }}
-          aria-label={`Seleccionar camino: ${path.title}`}
+            key={path.id}
+            onClick={() => onSelect(path.id)}
+            className="relative rounded-2xl overflow-hidden h-48 w-full group cursor-pointer"
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') onSelect(path.id); }}
+            aria-label={`Seleccionar camino: ${path.title}`}
         >
-          <div className="p-4 bg-accent/30 rounded-full transition-all duration-300 group-hover:bg-primary/20 group-hover:scale-110">
-            <path.icon className="w-12 h-12 md:w-16 md:h-16 text-primary transition-colors duration-300" />
+          <Image
+            src={path.image.imageUrl}
+            alt={path.image.description}
+            data-ai-hint={path.image.imageHint}
+            fill
+            className="object-cover transition-transform duration-300 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-black/50" />
+          <div className="relative h-full flex items-center p-8 text-white">
+            <div className="flex items-center gap-4">
+              <path.icon className="w-8 h-8 opacity-70" />
+              <div>
+                <h3 className="text-2xl font-bold">{path.title}</h3>
+                <p className="text-sm opacity-90">{path.description}</p>
+              </div>
+            </div>
+            <Button variant="accent" size="lg" className="absolute right-8">
+              Entrar <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
           </div>
-          <h3 className="text-xl md:text-2xl font-semibold mt-4 text-foreground">{path.title}</h3>
         </Card>
       ))}
     </div>
