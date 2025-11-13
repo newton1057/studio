@@ -8,6 +8,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { PlaceHolderImages, type ImagePlaceholder } from "@/lib/placeholder-images";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
 
 type PathwayId = "health" | "sports" | "diagnosis";
@@ -59,11 +60,11 @@ const pathwaysData: Pathway[] = [
         description: "Descubre cómo pequeños pasos pueden transformar tu salud.",
         imageUrl: "https://picsum.photos/seed/main-video/800/450",
       },
-      tutorials: [
-        { title: "Cómo registrar tus hábitos", duration: "2:40", imageUrl: "https://picsum.photos/seed/tut1/400/225" },
-        { title: "Tu primer ima Score", duration: "2:30", imageUrl: "https://picsum.photos/seed/tut2/400/225" },
-        { title: "Bitácora médica", duration: "1:30", imageUrl: "https://picsum.photos/seed/tut3/400/225" },
-      ],
+      tutorials: Array.from({ length: 18 }, (_, i) => ({
+        title: `Tutorial de salud ${i + 1}`,
+        duration: `${Math.floor(Math.random() * 5) + 1}:${Math.floor(Math.random() * 60).toString().padStart(2, '0')}`,
+        imageUrl: `https://picsum.photos/seed/tut-health-${i}/400/225`,
+      })),
       resources: [
         { title: "Guía de inicio rápido", description: "Un PDF con los conceptos básicos para empezar a usar la app." },
         { title: "Plan de alimentación semanal", description: "Ejemplo de un plan de comidas saludables para una semana." },
@@ -83,11 +84,11 @@ const pathwaysData: Pathway[] = [
         description: "Inicia tu recuperación con ejercicios y consejos de expertos.",
         imageUrl: "https://picsum.photos/seed/physio-main/800/450",
       },
-      tutorials: [
-        { title: "Ejercicios de movilidad articular", duration: "5:10", imageUrl: "https://picsum.photos/seed/physio1/400/225" },
-        { title: "Fortalecimiento para espalda baja", duration: "4:25", imageUrl: "https://picsum.photos/seed/physio2/400/225" },
-        { title: "Estiramientos post-rutina", duration: "3:50", imageUrl: "https://picsum.photos/seed/physio3/400/225" },
-      ],
+      tutorials: Array.from({ length: 18 }, (_, i) => ({
+        title: `Tutorial de fisio ${i + 1}`,
+        duration: `${Math.floor(Math.random() * 5) + 3}:${Math.floor(Math.random() * 60).toString().padStart(2, '0')}`,
+        imageUrl: `https://picsum.photos/seed/tut-physio-${i}/400/225`,
+      })),
       resources: [
         { title: "Guía de prevención de lesiones", description: "Un PDF con consejos para evitar lesiones comunes." },
         { title: "Plan de recuperación de 4 semanas", description: "Programa estructurado para tu rehabilitación." },
@@ -107,11 +108,11 @@ const pathwaysData: Pathway[] = [
         description: "Descubre estrategias y planes para superar tus metas.",
         imageUrl: "https://picsum.photos/seed/sports-main/800/450",
       },
-      tutorials: [
-        { title: "Calentamiento dinámico efectivo", duration: "6:30", imageUrl: "https://picsum.photos/seed/sports1/400/225" },
-        { title: "Técnicas de carrera y postura", duration: "5:50", imageUrl: "https://picsum.photos/seed/sports2/400/225" },
-        { title: "Nutrición pre y post-entrenamiento", duration: "4:15", imageUrl: "https://picsum.photos/seed/sports3/400/225" },
-      ],
+      tutorials: Array.from({ length: 18 }, (_, i) => ({
+        title: `Tutorial deportivo ${i + 1}`,
+        duration: `${Math.floor(Math.random() * 8) + 2}:${Math.floor(Math.random() * 60).toString().padStart(2, '0')}`,
+        imageUrl: `https://picsum.photos/seed/tut-sports-${i}/400/225`,
+      })),
       resources: [
         { title: "Guía de establecimiento de metas", description: "Define y planifica tus objetivos deportivos de forma inteligente." },
         { title: "Plan de entrenamiento de resistencia", description: "Mejora tu capacidad cardiovascular y muscular." },
@@ -171,7 +172,7 @@ const VideoPathwayContent = ({ pathway, onBack }: { pathway: Pathway, onBack: ()
   if (!pathway.videoContent) return null;
 
   return (
-    <div className="max-w-4xl mx-auto animate-fade-in">
+    <div className="max-w-6xl mx-auto animate-fade-in">
        <div className="w-full max-w-6xl mx-auto mb-8">
         <h1 className="text-xl" style={{ color: '#B9DDE8' }}>
             <span className="font-bold text-2xl" style={{ color: '#D2F251' }}>ima.</span>
@@ -193,26 +194,40 @@ const VideoPathwayContent = ({ pathway, onBack }: { pathway: Pathway, onBack: ()
 
       <div className="mb-12">
         <h3 className="text-xl md:text-2xl font-bold mb-6" style={{ color: '#B9DDE8' }}>Tutoriales</h3>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-          {pathway.videoContent.tutorials.map((tutorial, index) => (
-            <Card key={index} className="overflow-hidden group cursor-pointer transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_20px_rgba(42,151,176,0.7)]" style={{ borderRadius: '16px', border: '1px solid rgba(185, 221, 232, 0.4)' }}>
-              <div className="relative aspect-video">
-                <Image src={tutorial.imageUrl} alt={tutorial.title} fill className="object-cover" />
-                <div className="absolute inset-0 flex items-center justify-center" style={{ backgroundColor: 'rgba(14, 75, 135, 0.55)'}}>
-                  <PlayCircle className="w-12 h-12 text-white/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        <Carousel
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+          className="w-full"
+        >
+          <CarouselContent>
+            {pathway.videoContent.tutorials.map((tutorial, index) => (
+              <CarouselItem key={index} className="sm:basis-1/2 md:basis-1/3">
+                 <div className="p-1">
+                  <Card className="overflow-hidden group cursor-pointer transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_20px_rgba(42,151,176,0.7)]" style={{ borderRadius: '16px', border: '1px solid rgba(185, 221, 232, 0.4)' }}>
+                    <div className="relative aspect-video">
+                      <Image src={tutorial.imageUrl} alt={tutorial.title} fill className="object-cover" />
+                      <div className="absolute inset-0 flex items-center justify-center" style={{ backgroundColor: 'rgba(14, 75, 135, 0.55)'}}>
+                        <PlayCircle className="w-12 h-12 text-white/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      </div>
+                      <div className="absolute bottom-2 right-2 bg-black/50 text-xs px-2 py-1 rounded-md" style={{color: '#F6A62A'}}>{tutorial.duration}</div>
+                    </div>
+                    <div className="p-4 transition-colors duration-300" style={{ background: 'linear-gradient(180deg, rgba(14,75,135,0.7) 0%, rgba(14,75,135,0.1) 100%)' }}>
+                      <h4 className="font-semibold truncate" style={{color: '#B9DDE8', fontSize: '18px'}}>{tutorial.title}</h4>
+                      <div className="flex items-center gap-2 mt-1 text-sm text-muted-foreground">
+                        <Video className="w-4 h-4 text-muted-foreground" />
+                        <span className="text-muted-foreground">{tutorial.duration}</span>
+                      </div>
+                    </div>
+                  </Card>
                 </div>
-                <div className="absolute bottom-2 right-2 bg-black/50 text-xs px-2 py-1 rounded-md" style={{color: '#F6A62A'}}>{tutorial.duration}</div>
-              </div>
-              <div className="p-4 transition-colors duration-300" style={{ background: 'linear-gradient(180deg, rgba(14,75,135,0.7) 0%, rgba(14,75,135,0.1) 100%)' }}>
-                <h4 className="font-semibold truncate" style={{color: '#B9DDE8', fontSize: '18px'}}>{tutorial.title}</h4>
-                <div className="flex items-center gap-2 mt-1 text-sm text-muted-foreground">
-                  <Video className="w-4 h-4 text-muted-foreground" />
-                  <span className="text-muted-foreground">{tutorial.duration}</span>
-                </div>
-              </div>
-            </Card>
-          ))}
-        </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="text-white hover:text-white bg-white/20 hover:bg-white/30 border-none -left-4" />
+          <CarouselNext className="text-white hover:text-white bg-white/20 hover:bg-white/30 border-none -right-4"/>
+        </Carousel>
       </div>
 
       <div className="mb-12">
@@ -345,6 +360,8 @@ export default function Home() {
     
 
 
+
+    
 
     
 
