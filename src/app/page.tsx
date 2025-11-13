@@ -131,7 +131,7 @@ const PathwaySelection = ({ onSelect }: { onSelect: (pathway: PathwayId) => void
                 Selecciona tu camino y deja que ima te acompañe.
             </p>
         </div>
-        <div className="grid grid-cols-1 gap-10 w-full max-w-[1280px] pt-[20px]">
+        <div className="grid grid-cols-1 gap-2.5 w-full max-w-[1280px] pt-[20px]">
             {pathwaysData.map((path) => (
                 <Card
                     key={path.id}
@@ -307,7 +307,7 @@ export default function Home() {
           <PathwaySelection onSelect={setSelectedPathwayId} />
         )}
       </main>
-      <footer className="w-full mt-24 py-8 border-t border-border">
+      <footer className="w-full mt-5 py-8 border-t border-border">
         <div className="container mx-auto text-center text-muted-foreground text-sm px-4">
           <p>
             <span style={{ color: '#B9DDE8' }}>Si tienes alguna duda escríbenos al correo de soporte: </span>
@@ -321,4 +321,5 @@ export default function Home() {
   );
 }
 
+    
     
