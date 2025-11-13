@@ -171,14 +171,53 @@ const healthResources: DownloadableResource[] = Array.from({ length: 15 }, (_, i
   description: `PDF con ejercicios y consejos para la fase ${i + 1} de tu recuperación.`
 }));
 
-healthResources[0].title = "Bitácora ima";
-healthResources[0].url = "https://drive.google.com/file/d/13AqkNkl5axBnbTy54aB7uAYZcnkLm6KQ/view?usp=drive_link";
-healthResources[0].description = "seguimiento general de evolución y registros médicos";
+healthResources[0] = {
+    title: "Bitácora ima",
+    url: "https://drive.google.com/file/d/13AqkNkl5axBnbTy54aB7uAYZcnkLm6KQ/view?usp=drive_link",
+    description: "seguimiento general de evolución y registros médicos",
+};
 
-healthResources[1].title = "Preguntale a ima";
-healthResources[1].url = "https://drive.google.com/file/d/1JU9XpXaTptAjWPgRQFZSeJDZfRJhFKSK/view?usp=drive_link";
-healthResources[1].description = "resolución de dudas sobre cuidados y síntomas";
+healthResources[1] = {
+    title: "Preguntale a ima",
+    url: "https://drive.google.com/file/d/1JU9XpXaTptAjWPgRQFZSeJDZfRJhFKSK/view?usp=drive_link",
+    description: "resolución de dudas sobre cuidados y síntomas",
+};
 
+healthResources[2] = {
+    title: "Sueño",
+    url: "https://drive.google.com/file/d/1g4XCShV_IYqR5knHoKC3G-Lw3OttmyFX/view?usp=drive_link",
+    description: "recuperación y descanso óptimo",
+};
+
+healthResources[3] = {
+    title: "Consejo y metas diarias",
+    url: "https://drive.google.com/file/d/1ehS6N5yTl8IBiyjtVwXiLtjY8651VhTV/view?usp=drive_link",
+    description: "rutinas ligeras, control del progreso",
+};
+
+healthResources[4] = {
+    title: "Actividad física",
+    url: "https://drive.google.com/file/d/1-wkMhXp3MAujF6Ame_NMQtZi98j6JYMC/view?usp=drive_link",
+    description: "retorno gradual al movimiento",
+};
+
+healthResources[5] = {
+    title: "Consumo de agua",
+    url: "https://drive.google.com/file/d/1xsoIkxxWTnID3KImvRh55BQX2dNxy20q/view?usp=drive_link",
+    description: "importante para hidratación y cicatrización",
+};
+
+healthResources[6] = {
+    title: "Pasos diarios",
+    url: "https://drive.google.com/file/d/1AgQbxPqR-qG4bvn638_G--Ehfqhrk95r/view?usp=drive_link",
+    description: "progresión funcional",
+};
+
+healthResources[7] = {
+    title: "Árbol familiar",
+    url: "https://drive.google.com/file/d/1mjXPZWdDr1oeEJ91s6RGMcrizGTFURJs/view?usp=drive_link",
+    description: "antecedentes",
+};
 
 const pathwaysData: Pathway[] = [
   {
@@ -553,6 +592,8 @@ export default function Home() {
 
 
 
+
+    
 
     
 
