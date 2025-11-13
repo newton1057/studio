@@ -219,9 +219,9 @@ const VideoPathwayContent = ({ pathway, onBack }: { pathway: Pathway, onBack: ()
         <h3 className="text-xl md:text-2xl font-bold mb-6" style={{ color: '#B9DDE8' }}>Recursos descargables</h3>
         <div className="space-y-5">
           {pathway.videoContent.resources.map((resource, index) => (
-            <Card key={index} className="group flex flex-col sm:flex-row items-start sm:items-center justify-between p-6 transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_20px_rgba(42,151,176,0.7)]" style={{ borderWidth: '1px', borderColor: 'rgba(185, 221, 232, 0.4)', borderRadius: '16px', background: 'linear-gradient(180deg, rgba(14,75,135,0.7) 0%, rgba(14,75,135,0.1) 100%)' }}>
+            <Card key={index} className="group flex flex-col sm:flex-row items-start sm:items-center justify-between p-6 transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_20px_rgba(42,151,176,0.7)]" style={{ borderWidth: '1px', borderColor: 'rgba(185, 221, 232, 0.4)', borderRadius: '16px', background: 'linear-gradient(180deg, rgba(14, 75, 135, 0.7) 0%, rgba(14, 75, 135, 0.1) 100%)' }}>
               <div className="flex items-center gap-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center group-hover:bg-white/20 group-hover:text-white">
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 text-white flex items-center justify-center group-hover:bg-white/20">
                   <Download className="w-5 h-5" />
                 </div>
                 <div>
@@ -328,6 +328,8 @@ export default function Home() {
     
 
 
+
+    
 
     
 
