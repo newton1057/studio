@@ -317,17 +317,6 @@ export default function Home() {
 
   return (
     <div className="bg-background min-h-screen text-foreground selection:bg-primary selection:text-primary-foreground relative">
-      <div className="absolute top-4 right-4 z-10">
-        <Image
-          src="https://firebasestorage.googleapis.com/v0/b/docseb-d341b.appspot.com/o/logo-transparent.png?alt=media&token=8942b509-8447-4581-9f93-455f32d8498b"
-          alt="Dr. Sebastián Armida Beguerisse Logo"
-          width={200}
-          height={100}
-          className="w-48 h-auto md:w-64"
-          priority
-          style={{ filter: 'brightness(0) invert(1)' }}
-        />
-      </div>
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20 lg:py-24">
         {selectedPathway ? (
           selectedPathway.videoContent ? (
