@@ -122,6 +122,49 @@ healthTutorials[8] = {
     videoUrl: "https://youtube.com/shorts/a_-mkc5Axbk"
 };
 
+healthTutorials[9] = {
+    title: "Suplementos y vitaminas",
+    duration: "0:15",
+    imageUrl: "https://i.ytimg.com/vi/c9RvAaxVhtw/hqdefault.jpg",
+    videoUrl: "https://youtube.com/shorts/c9RvAaxVhtw"
+};
+
+healthTutorials[10] = {
+    title: "Alergias",
+    duration: "0:15",
+    imageUrl: "https://i.ytimg.com/vi/RhRJVVKWJfo/hqdefault.jpg",
+    videoUrl: "https://youtube.com/shorts/RhRJVVKWJfo"
+};
+
+healthTutorials[11] = {
+    title: "Actividad física",
+    duration: "0:15",
+    imageUrl: "https://i.ytimg.com/vi/KKvGd2UlwJA/hqdefault.jpg",
+    videoUrl: "https://youtube.com/shorts/KKvGd2UlwJA"
+};
+
+healthTutorials[12] = {
+    title: "Consumo de agua",
+    duration: "0:15",
+    imageUrl: "https://i.ytimg.com/vi/nW05rLxU5c0/hqdefault.jpg",
+    videoUrl: "https://youtube.com/shorts/nW05rLxU5c0"
+};
+
+healthTutorials[13] = {
+    title: "Pasos diarios",
+    duration: "0:15",
+    imageUrl: "https://i.ytimg.com/vi/z_oYFuk9qic/hqdefault.jpg",
+    videoUrl: "https://youtube.com/shorts/z_oYFuk9qic"
+};
+
+healthTutorials[14] = {
+    title: "Árbol familiar",
+    duration: "0:15",
+    imageUrl: "https://i.ytimg.com/vi/aiQ37kIQ81Q/hqdefault.jpg",
+    videoUrl: "https://youtube.com/shorts/aiQ37kIQ81Q"
+};
+
+
 const pathwaysData: Pathway[] = [
   {
     id: "health",
@@ -481,3 +524,6 @@ export default function Home() {
     
 
 
+
+
+    
