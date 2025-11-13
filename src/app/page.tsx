@@ -83,12 +83,12 @@ const pathwaysData: Pathway[] = [
         description: "Inicia tu recuperación con ejercicios y consejos de expertos.",
         imageUrl: "https://picsum.photos/seed/physio-main/800/450",
       },
-      tutorials: Array.from({ length: 18 }, (_, i) => ({
+      tutorials: Array.from({ length: 19 }, (_, i) => ({
         title: `Tutorial de fisio ${i + 1}`,
         duration: `${Math.floor(Math.random() * 5) + 3}:${Math.floor(Math.random() * 60).toString().padStart(2, '0')}`,
         imageUrl: `https://picsum.photos/seed/tut-physio-${i}/400/225`,
       })),
-      resources: Array.from({ length: 18 }, (_, i) => ({
+      resources: Array.from({ length: 19 }, (_, i) => ({
         title: `Rutina de fisioterapia ${i + 1}`,
         description: `PDF con la rutina de ejercicios para la semana ${i + 1}.`
       })),
@@ -357,6 +357,8 @@ export default function Home() {
     
 
 
+
+    
 
     
 
