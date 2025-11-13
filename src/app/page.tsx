@@ -51,7 +51,7 @@ const pathwaysData: Pathway[] = [
     id: "health",
     title: "Post-operación",
     icon: Stethoscope,
-    description: "Encuentra guías, videos y recomendaciones para tu cuidado después de una cirugía.",
+    description: "cuidados, rutinas y pasos para tu recuperación",
     image: PlaceHolderImages.find(img => img.id === 'healthy-food')!,
     videoContent: {
       mainVideo: {
@@ -75,7 +75,7 @@ const pathwaysData: Pathway[] = [
     id: "diagnosis",
     title: "Fisioterapia",
     icon: Dumbbell,
-    description: "Recupera tu movimiento paso a paso con los tutoriales y el acompañamiento de ima.",
+    description: "ejercicios, guías y videos para tu recuperación",
     image: PlaceHolderImages.find(img => img.id === 'doctor-phone')!,
     videoContent: {
       mainVideo: {
@@ -99,7 +99,7 @@ const pathwaysData: Pathway[] = [
     id: "sports",
     title: "Meta Deportiva",
     icon: LineChart,
-    description: "Tu meta deportiva comienza aquí, con el apoyo y guía de ima.",
+    description: "entrenamientos, consejos y planes para mejorar tu rendimiento",
     image: PlaceHolderImages.find(img => img.id === 'runners')!,
     videoContent: {
       mainVideo: {
@@ -320,3 +320,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
