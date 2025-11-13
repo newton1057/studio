@@ -30,6 +30,7 @@ interface Tutorial {
 interface DownloadableResource {
   title: string;
   description: string;
+  url?: string;
 }
 
 interface MainVideo {
@@ -165,6 +166,14 @@ healthTutorials[14] = {
 };
 
 
+const healthResources: DownloadableResource[] = Array.from({ length: 15 }, (_, i) => ({
+  title: `Guía de recuperación ${i + 1}`,
+  description: `PDF con ejercicios y consejos para la fase ${i + 1} de tu recuperación.`
+}));
+
+healthResources[0].url = "https://drive.google.com/file/d/13AqkNkl5axBnbTy54aB7uAYZcnkLm6KQ/view?usp=drive_link";
+
+
 const pathwaysData: Pathway[] = [
   {
     id: "health",
@@ -179,11 +188,8 @@ const pathwaysData: Pathway[] = [
         imageUrl: "https://i.ytimg.com/vi/fnUOdFE3b_8/hqdefault.jpg",
         videoUrl: "https://youtu.be/fnUOdFE3b_8"
       },
-      tutorials: healthTutorials,
-      resources: Array.from({ length: 15 }, (_, i) => ({
-        title: `Guía de recuperación ${i + 1}`,
-        description: `PDF con ejercicios y consejos para la fase ${i + 1} de tu recuperación.`
-      })),
+      tutorials: healthTutorials.slice(0, 15),
+      resources: healthResources,
     },
   },
   {
@@ -342,6 +348,42 @@ const VideoPathwayContent = ({ pathway, onBack }: { pathway: Pathway, onBack: ()
     return <div className="p-1">{cardContent}</div>;
   };
 
+  const ResourceItem = ({ resource }: { resource: DownloadableResource }) => {
+    const cardContent = (
+      <Card className="group flex flex-col sm:flex-row items-start sm:items-center justify-between p-6 transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_20px_rgba(42,151,176,0.8)]"
+      style={{
+        background: 'rgba(185,221,232,0.2)',
+        backdropFilter: 'blur(8px)',
+        border: '1px solid rgba(185,221,232,0.4)',
+        borderRadius: '16px'
+      }}>
+        <div className="flex items-center gap-4">
+          <div className="flex-shrink-0 w-10 h-10 rounded-full bg-white/20 text-white flex items-center justify-center">
+            <Download className="w-5 h-5" />
+          </div>
+          <div>
+            <h4 className="font-semibold text-white" style={{ fontSize: '18px' }}>{resource.title}</h4>
+            <p className="text-sm text-white/80" style={{ fontSize: '15px' }}>{resource.description}</p>
+          </div>
+        </div>
+        <Button size="sm" className="w-full sm:w-auto mt-4 sm:mt-0 shadow-md text-primary-foreground" style={{ backgroundColor: '#F6A62A' }}>
+          Descargar
+          <Download className="ml-2 h-4 w-4" />
+        </Button>
+      </Card>
+    );
+
+    if (resource.url) {
+        return (
+            <a href={resource.url} target="_blank" rel="noopener noreferrer" className="block">
+                {cardContent}
+            </a>
+        );
+    }
+
+    return cardContent;
+  }
+
   return (
     <div className="max-w-6xl mx-auto animate-fade-in">
        <div className="w-full max-w-6xl mx-auto mb-8">
@@ -382,27 +424,7 @@ const VideoPathwayContent = ({ pathway, onBack }: { pathway: Pathway, onBack: ()
         <ScrollArea className="h-[430px] w-full rounded-md pr-4">
           <div className="space-y-5">
             {pathway.videoContent.resources.map((resource, index) => (
-              <Card key={index} className="group flex flex-col sm:flex-row items-start sm:items-center justify-between p-6 transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_20px_rgba(42,151,176,0.8)]" 
-              style={{ 
-                background: 'rgba(185,221,232,0.2)',
-                backdropFilter: 'blur(8px)',
-                border: '1px solid rgba(185,221,232,0.4)',
-                borderRadius: '16px'
-              }}>
-                <div className="flex items-center gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-white/20 text-white flex items-center justify-center">
-                    <Download className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-white" style={{ fontSize: '18px' }}>{resource.title}</h4>
-                    <p className="text-sm text-white/80" style={{ fontSize: '15px' }}>{resource.description}</p>
-                  </div>
-                </div>
-                <Button size="sm" className="w-full sm:w-auto mt-4 sm:mt-0 shadow-md text-primary-foreground" style={{ backgroundColor: '#F6A62A' }}>
-                  Descargar
-                  <Download className="ml-2 h-4 w-4" />
-                </Button>
-              </Card>
+              <ResourceItem key={index} resource={resource} />
             ))}
           </div>
         </ScrollArea>
