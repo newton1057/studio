@@ -127,7 +127,7 @@ const PathwaySelection = ({ onSelect }: { onSelect: (pathway: PathwayId) => void
             <h1 className="text-[20px]" style={{ color: '#2A97B0' }}>
                 <span className="font-bold text-[40px]" style={{ color: '#D2F251' }}>ima.</span> Bienvenido al portal <span className="font-bold">del Dr. Sebastián Armida</span> — Tu espacio para aprender, mejorar y cuidar tu salud.
             </h1>
-            <p className="mt-4 text-[16px]" style={{ color: '#656E6B' }}>
+            <p className="mt-4 text-[16px]" style={{ color: 'hsl(var(--muted-foreground))' }}>
                 Selecciona tu camino y deja que ima te acompañe.
             </p>
         </div>
@@ -136,7 +136,7 @@ const PathwaySelection = ({ onSelect }: { onSelect: (pathway: PathwayId) => void
                 <Card
                     key={path.id}
                     onClick={() => onSelect(path.id)}
-                    className="relative overflow-hidden w-full group cursor-pointer transition-all duration-300 hover:shadow-2xl shadow-[0_0_0_1px_#B9DDE8] hover:shadow-[0_10px_25px_-5px_#0E4B87,0_8px_10px_-6px_#0E4B87]"
+                    className="relative overflow-hidden w-full group cursor-pointer transition-all duration-300 hover:shadow-[0_0_20px_#2A97B0]"
                     style={{ height: '260px', borderRadius: '20px' }}
                     role="button"
                     tabIndex={0}
@@ -156,7 +156,7 @@ const PathwaySelection = ({ onSelect }: { onSelect: (pathway: PathwayId) => void
                             <h3 className="text-[24px] font-bold">{path.title}</h3>
                             <p className="text-[16px] font-normal" style={{ opacity: 0.8 }}>{path.description}</p>
                         </div>
-                        <Button variant="accent" className="w-[120px] h-[44px] rounded-[30px] absolute right-[60px] transition-transform duration-300 group-hover:scale-105" style={{ backgroundColor: '#D2F251', color: '#0E4B87' }}>
+                        <Button variant="accent" className="w-[120px] h-[44px] rounded-[30px] absolute right-[60px] transition-transform duration-300 group-hover:scale-105">
                             Entrar <ArrowRight className="ml-2 h-4 w-4" style={{ height: '16px', width: '16px' }} />
                         </Button>
                     </div>
