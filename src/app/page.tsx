@@ -123,7 +123,7 @@ const pathwaysData: Pathway[] = [
 
 const PathwaySelection = ({ onSelect }: { onSelect: (pathway: PathwayId) => void }) => (
   <div className="flex flex-col items-center text-center space-y-4 animate-fade-in">
-    <div className="w-full max-w-6xl text-left">
+    <div className="w-full max-w-[1280px] text-left">
         <h1 className="text-xl md:text-2xl" style={{ color: '#2A97B0' }}>
             <span className="font-bold" style={{ color: '#2A97B0' }}>ima.</span> Bienvenido al portal <span className="font-bold">del Dr. Sebastián Armida</span> — Tu espacio para aprender, mejorar y cuidar tu salud.
         </h1>
@@ -131,7 +131,7 @@ const PathwaySelection = ({ onSelect }: { onSelect: (pathway: PathwayId) => void
           Selecciona tu camino y deja que ima te acompañe.
         </p>
     </div>
-    <div className="grid grid-cols-1 gap-10 w-full max-w-6xl pt-4">
+    <div className="grid grid-cols-1 gap-10 w-full max-w-[1280px] pt-4">
       {pathwaysData.map((path) => (
         <Card
             key={path.id}
@@ -151,10 +151,10 @@ const PathwaySelection = ({ onSelect }: { onSelect: (pathway: PathwayId) => void
             className="object-cover object-top transition-transform duration-300 group-hover:scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/50 to-transparent transition-colors duration-300 group-hover:from-black/80" />
-          <div className="relative h-full flex flex-col md:flex-row items-start md:items-center justify-between p-6 md:p-8 text-white">
-            <div className="flex items-start text-left flex-col gap-2">
-              <h3 className="text-xl md:text-2xl font-bold">{path.title}</h3>
-              <p className="text-sm opacity-90">{path.description}</p>
+          <div className="relative h-full flex flex-col md:flex-row items-start md:items-center justify-between p-10 text-white">
+            <div className="flex items-start text-left flex-col gap-2 w-[600px]">
+              <h3 className="text-2xl font-bold">{path.title}</h3>
+              <p className="text-base font-normal opacity-80">{path.description}</p>
             </div>
             <Button variant="accent" size="lg" className="rounded-full mt-4 md:mt-0 md:ml-4 transition-transform duration-300 group-hover:scale-105">
               Entrar <ArrowRight className="ml-2 h-4 w-4" />
@@ -321,3 +321,5 @@ export default function Home() {
 }
 
       
+
+    
