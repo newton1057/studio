@@ -215,25 +215,27 @@ const VideoPathwayContent = ({ pathway, onBack }: { pathway: Pathway, onBack: ()
         </div>
       </div>
 
-      <div className="p-5 rounded-[16px] shadow-[0_2px_10px_rgba(0,0,0,0.1)] space-y-5" style={{ background: 'rgba(185, 221, 232, 0.05)' }}>
-        <h3 className="text-xl md:text-2xl font-bold mb-1" style={{ color: '#B9DDE8' }}>Recursos descargables</h3>
-        {pathway.videoContent.resources.map((resource, index) => (
-          <Card key={index} className="group flex flex-col sm:flex-row items-start sm:items-center justify-between p-6 transition-all duration-300 bg-white hover:bg-[#2A97B0] hover:shadow-[0_0_20px_rgba(246,166,42,0.6)] gap-4" style={{ borderWidth: '2px', borderColor: '#2A97B0', borderRadius: '16px' }}>
-            <div className="flex items-center gap-4">
-              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center group-hover:bg-white/20 group-hover:text-white">
-                <Download className="w-5 h-5" />
+      <div className="mb-12">
+        <h3 className="text-xl md:text-2xl font-bold mb-6" style={{ color: '#B9DDE8' }}>Recursos descargables</h3>
+        <div className="space-y-5">
+          {pathway.videoContent.resources.map((resource, index) => (
+            <Card key={index} className="group flex flex-col sm:flex-row items-start sm:items-center justify-between p-6 transition-all duration-300 bg-white hover:bg-[#2A97B0] hover:shadow-[0_0_20px_rgba(246,166,42,0.6)] gap-4" style={{ borderWidth: '2px', borderColor: '#2A97B0', borderRadius: '16px' }}>
+              <div className="flex items-center gap-4">
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center group-hover:bg-white/20 group-hover:text-white">
+                  <Download className="w-5 h-5" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-[#0E4B87] group-hover:text-white" style={{ fontSize: '18px' }}>{resource.title}</h4>
+                  <p className="text-sm text-[#656E6B] group-hover:text-white" style={{ fontSize: '15px' }}>{resource.description}</p>
+                </div>
               </div>
-              <div>
-                <h4 className="font-semibold text-[#0E4B87] group-hover:text-white" style={{ fontSize: '18px' }}>{resource.title}</h4>
-                <p className="text-sm text-[#656E6B] group-hover:text-white" style={{ fontSize: '15px' }}>{resource.description}</p>
-              </div>
-            </div>
-            <Button variant="outline" size="sm" className="w-full sm:w-auto bg-transparent text-[#F6A62A] group-hover:bg-[#F6A62A] group-hover:text-[#0E4B87]" style={{ borderWidth: '1.5px', borderColor: '#F6A62A' }}>
-              Descargar
-              <Download className="ml-2 h-4 w-4" />
-            </Button>
-          </Card>
-        ))}
+              <Button variant="outline" size="sm" className="w-full sm:w-auto bg-transparent text-[#F6A62A] group-hover:bg-[#F6A62A] group-hover:text-[#0E4B87]" style={{ borderWidth: '1.5px', borderColor: '#F6A62A' }}>
+                Descargar
+                <Download className="ml-2 h-4 w-4" />
+              </Button>
+            </Card>
+          ))}
+        </div>
       </div>
 
        <Button variant="ghost" onClick={onBack} className="mt-12 hover:bg-accent/50" style={{ color: '#B9DDE8' }}>
