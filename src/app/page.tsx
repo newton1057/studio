@@ -150,13 +150,13 @@ const PathwaySelection = ({ onSelect }: { onSelect: (pathway: PathwayId) => void
                         fill
                         className="object-cover object-top transition-transform duration-300 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/50 to-transparent transition-colors duration-300 group-hover:from-black/80" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/50 to-transparent transition-all duration-300 group-hover:from-black/80 group-hover:backdrop-blur-[2px]" />
                     <div className="relative h-full flex flex-col md:flex-row items-start md:items-center justify-between p-10 text-white" style={{ paddingTop: '40px', paddingLeft: '40px' }}>
-                        <div className="flex items-start text-left flex-col gap-2" style={{ width: '600px' }}>
+                        <div className="flex items-start text-left flex-col gap-2 transition-transform duration-300 group-hover:-translate-y-[5px]" style={{ width: '600px' }}>
                             <h3 className="text-[24px] font-bold">{path.title}</h3>
                             <p className="text-[16px] font-normal" style={{ opacity: 0.8 }}>{path.description}</p>
                         </div>
-                        <Button variant="accent" className="w-[120px] h-[44px] rounded-[30px] absolute right-[60px] transition-transform duration-300 group-hover:scale-105 text-white">
+                        <Button variant="accent" className="w-[120px] h-[44px] rounded-[30px] absolute right-[60px] transition-transform duration-300 group-hover:scale-105 group-hover:-translate-y-[5px] text-white">
                             Entrar <ArrowRight className="ml-2 h-4 w-4" style={{ height: '16px', width: '16px' }} />
                         </Button>
                     </div>
@@ -311,7 +311,7 @@ export default function Home() {
         <div className="container mx-auto text-center text-muted-foreground text-sm px-4">
           <p>
             <span style={{ color: '#B9DDE8' }}>Si tienes alguna duda escríbenos al correo de soporte: </span>
-            <a href="mailto:soporte@preguntaleaima.com" className="text-accent hover:underline">
+            <a href="mailto:soporte@preguntaleaima.com" className="text-accent hover:underline" style={{ color: '#D2F251' }}>
               soporte@preguntaleaima.com
             </a>
           </p>
@@ -320,7 +320,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
-
-    
