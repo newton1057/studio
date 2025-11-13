@@ -175,6 +175,10 @@ healthResources[0].title = "Bitácora ima";
 healthResources[0].url = "https://drive.google.com/file/d/13AqkNkl5axBnbTy54aB7uAYZcnkLm6KQ/view?usp=drive_link";
 healthResources[0].description = "seguimiento general de evolución y registros médicos";
 
+healthResources[1].title = "Preguntale a ima";
+healthResources[1].url = "https://drive.google.com/file/d/1JU9XpXaTptAjWPgRQFZSeJDZfRJhFKSK/view?usp=drive_link";
+healthResources[1].description = "resolución de dudas sobre cuidados y síntomas";
+
 
 const pathwaysData: Pathway[] = [
   {
