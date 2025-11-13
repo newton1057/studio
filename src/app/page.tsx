@@ -182,11 +182,11 @@ const VideoPathwayContent = ({ pathway, onBack }: { pathway: Pathway, onBack: ()
         <p className="text-muted-foreground mt-2" style={{ color: '#B9DDE8' }}>{pathway.videoContent.mainVideo.description}</p>
       </div>
 
-      <Card className="overflow-hidden mb-12 border-2 border-primary/20 shadow-lg shadow-primary/10">
+      <Card className="overflow-hidden mb-12 border-2 border-primary/20 shadow-lg shadow-primary/10 group cursor-pointer">
         <div className="relative aspect-video">
           <Image src={pathway.videoContent.mainVideo.imageUrl} alt="Video principal" fill className="object-cover" />
           <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-            <PlayCircle className="w-16 h-16 md:w-20 md:h-20 text-white/70 hover:text-white transition-colors cursor-pointer hover:scale-110 duration-300" />
+            <PlayCircle className="w-16 h-16 md:w-20 md:h-20 text-white/70 group-hover:text-white transition-all duration-300 cursor-pointer group-hover:scale-110" />
           </div>
         </div>
       </Card>
@@ -203,7 +203,7 @@ const VideoPathwayContent = ({ pathway, onBack }: { pathway: Pathway, onBack: ()
                 </div>
                 <div className="absolute bottom-2 right-2 bg-black/50 text-xs px-2 py-1 rounded-md" style={{color: '#F6A62A'}}>{tutorial.duration}</div>
               </div>
-              <div className="p-4" style={{ background: 'linear-gradient(180deg, rgba(14,75,135,0.7) 0%, rgba(14,75,135,0.1) 100%)' }}>
+              <div className="p-4 transition-colors duration-300" style={{ background: 'linear-gradient(180deg, rgba(14,75,135,0.7) 0%, rgba(14,75,135,0.1) 100%)' }}>
                 <h4 className="font-semibold truncate" style={{color: '#B9DDE8', fontSize: '18px'}}>{tutorial.title}</h4>
                 <div className="flex items-center gap-2 mt-1 text-sm text-muted-foreground">
                   <Video className="w-4 h-4 text-muted-foreground" />
@@ -327,3 +327,6 @@ export default function Home() {
 
     
 
+
+
+    
