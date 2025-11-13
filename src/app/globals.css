@@ -80,7 +80,8 @@
   }
   body {
     @apply bg-background text-foreground;
-    background-image: radial-gradient(circle at 1px 1px, hsl(var(--border) / 0.1) 1px, transparent 0);
-    background-size: 2rem 2rem;
+    background: linear-gradient(to bottom, hsl(var(--background)), #2A97B0), radial-gradient(circle at 1px 1px, hsl(var(--border) / 0.1) 1px, transparent 0);
+    background-size: auto, 2rem 2rem;
+    background-blend-mode: color;
   }
 }
