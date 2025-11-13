@@ -53,7 +53,7 @@ interface Pathway {
   };
 }
 
-const healthTutorials: Tutorial[] = Array.from({ length: 18 }, (_, i) => ({
+const healthTutorials: Tutorial[] = Array.from({ length: 15 }, (_, i) => ({
     title: `Tutorial de salud ${i + 1}`,
     duration: `${Math.floor(Math.random() * 5) + 1}:${Math.floor(Math.random() * 60).toString().padStart(2, '0')}`,
     imageUrl: `https://picsum.photos/seed/tut-health-${i}/400/225`,
@@ -180,7 +180,7 @@ const pathwaysData: Pathway[] = [
         videoUrl: "https://youtu.be/fnUOdFE3b_8"
       },
       tutorials: healthTutorials,
-      resources: Array.from({ length: 18 }, (_, i) => ({
+      resources: Array.from({ length: 15 }, (_, i) => ({
         title: `Guía de recuperación ${i + 1}`,
         description: `PDF con ejercicios y consejos para la fase ${i + 1} de tu recuperación.`
       })),
@@ -525,5 +525,7 @@ export default function Home() {
 
 
 
+
+    
 
     
