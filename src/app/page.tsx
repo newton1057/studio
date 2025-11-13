@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { PlaceHolderImages, type ImagePlaceholder } from "@/lib/placeholder-images";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 
 type PathwayId = "health" | "sports" | "diagnosis";
@@ -58,7 +59,7 @@ const pathwaysData: Pathway[] = [
       mainVideo: {
         title: "Bienvenido a tu camino de bienestar con ima",
         description: "Descubre cómo pequeños pasos pueden transformar tu salud.",
-        imageUrl: "https://picsum.photos/seed/main-video/800/450",
+        imageUrl: "https://firebasestorage.googleapis.com/v0/b/docseb.firebasestorage.app/o/images%2Fimg-main.png?alt=media&token=8d2495b5-47e0-4743-9828-d8f967f677b1",
       },
       tutorials: Array.from({ length: 18 }, (_, i) => ({
         title: `Tutorial de salud ${i + 1}`,
@@ -81,7 +82,7 @@ const pathwaysData: Pathway[] = [
       mainVideo: {
         title: "Tu Guía Completa de Fisioterapia con ima",
         description: "Inicia tu recuperación con ejercicios y consejos de expertos.",
-        imageUrl: "https://picsum.photos/seed/physio-main/800/450",
+        imageUrl: "https://firebasestorage.googleapis.com/v0/b/docseb.firebasestorage.app/o/images%2Fimg-main.png?alt=media&token=8d2495b5-47e0-4743-9828-d8f967f677b1",
       },
       tutorials: Array.from({ length: 19 }, (_, i) => ({
         title: `Tutorial de fisio ${i + 1}`,
@@ -104,7 +105,7 @@ const pathwaysData: Pathway[] = [
       mainVideo: {
         title: "Alcanza tu Máximo Rendimiento Deportivo con ima",
         description: "Descubre estrategias y planes para superar tus metas.",
-        imageUrl: "https://picsum.photos/seed/sports-main/800/450",
+        imageUrl: "https://firebasestorage.googleapis.com/v0/b/docseb.firebasestorage.app/o/images%2Fimg-main.png?alt=media&token=8d2495b5-47e0-4743-9828-d8f967f677b1",
       },
       tutorials: Array.from({ length: 22 }, (_, i) => ({
         title: `Tutorial deportivo ${i + 1}`,
@@ -229,31 +230,33 @@ const VideoPathwayContent = ({ pathway, onBack }: { pathway: Pathway, onBack: ()
 
       <div className="mb-12">
         <h3 className="text-xl md:text-2xl font-bold mb-6" style={{ color: '#B9DDE8' }}>Recursos descargables</h3>
-        <div className="space-y-5">
-          {pathway.videoContent.resources.map((resource, index) => (
-            <Card key={index} className="group flex flex-col sm:flex-row items-start sm:items-center justify-between p-6 transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_20px_rgba(42,151,176,0.8)]" 
-            style={{ 
-              background: 'rgba(185,221,232,0.2)',
-              backdropFilter: 'blur(8px)',
-              border: '1px solid rgba(185,221,232,0.4)',
-              borderRadius: '16px'
-            }}>
-              <div className="flex items-center gap-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-white/20 text-white flex items-center justify-center">
-                  <Download className="w-5 h-5" />
+        <ScrollArea className="h-[430px] w-full rounded-md pr-4">
+          <div className="space-y-5">
+            {pathway.videoContent.resources.map((resource, index) => (
+              <Card key={index} className="group flex flex-col sm:flex-row items-start sm:items-center justify-between p-6 transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_20px_rgba(42,151,176,0.8)]" 
+              style={{ 
+                background: 'rgba(185,221,232,0.2)',
+                backdropFilter: 'blur(8px)',
+                border: '1px solid rgba(185,221,232,0.4)',
+                borderRadius: '16px'
+              }}>
+                <div className="flex items-center gap-4">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-white/20 text-white flex items-center justify-center">
+                    <Download className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-white" style={{ fontSize: '18px' }}>{resource.title}</h4>
+                    <p className="text-sm text-white/80" style={{ fontSize: '15px' }}>{resource.description}</p>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="font-semibold text-white" style={{ fontSize: '18px' }}>{resource.title}</h4>
-                  <p className="text-sm text-white/80" style={{ fontSize: '15px' }}>{resource.description}</p>
-                </div>
-              </div>
-              <Button size="sm" className="w-full sm:w-auto mt-4 sm:mt-0 shadow-md text-primary-foreground" style={{ backgroundColor: '#F6A62A' }}>
-                Descargar
-                <Download className="ml-2 h-4 w-4" />
-              </Button>
-            </Card>
-          ))}
-        </div>
+                <Button size="sm" className="w-full sm:w-auto mt-4 sm:mt-0 shadow-md text-primary-foreground" style={{ backgroundColor: '#F6A62A' }}>
+                  Descargar
+                  <Download className="ml-2 h-4 w-4" />
+                </Button>
+              </Card>
+            ))}
+          </div>
+        </ScrollArea>
       </div>
 
        <Button variant="ghost" onClick={onBack} className="mt-12 hover:bg-accent/50" style={{ color: '#B9DDE8' }}>
