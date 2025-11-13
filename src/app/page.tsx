@@ -311,7 +311,7 @@ export default function Home() {
         <div className="container mx-auto text-center text-muted-foreground text-sm px-4">
           <p>
             <span style={{ color: '#B9DDE8' }}>Si tienes alguna duda escríbenos al correo de soporte: </span>
-            <a href="mailto:soporte@preguntaleaima.com" className="text-primary hover:underline">
+            <a href="mailto:soporte@preguntaleaima.com" className="text-accent hover:underline">
               soporte@preguntaleaima.com
             </a>
           </p>
@@ -320,5 +320,7 @@ export default function Home() {
     </div>
   );
 }
+
+    
 
     
