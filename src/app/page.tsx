@@ -167,6 +167,7 @@ healthTutorials[14] = {
     videoUrl: "https://youtube.com/shorts/aiQ37kIQ81Q"
 };
 
+const findTutorial = (title: string) => healthTutorials.find(t => t.title === title)!;
 
 const healthResources: DownloadableResource[] = [
   {
@@ -223,10 +224,19 @@ const healthResources: DownloadableResource[] = [
     title: "Métricas y hábitos personalizados",
     description: "rango de movilidad",
     url: "https://drive.google.com/file/d/1sW1ubTWQxt1_Gvb94osPnHTjaRGYeU-Z/view?usp=drive_link"
-  }
+  },
+  {
+    title: "High performance",
+    url: "https://drive.google.com/file/d/1ADwIf-c81RMCAqzv2aHi6TBQQcMKroAn/view?usp=drive_link",
+    description: "función central para entrenamiento y rendimiento",
+  },
+  {
+    title: "Plato macros",
+    url: "https://drive.google.com/file/d/1H2D1Q4v_zfCv0nf_XK66DcHg5rXodFLH/view?usp=drive_link",
+    description: "control de calorías y nutrición",
+  },
 ];
 
-const findTutorial = (title: string) => healthTutorials.find(t => t.title === title)!;
 const findResource = (title: string) => healthResources.find(t => t.title === title)!;
 
 const postOpVideoContent = {
@@ -320,13 +330,13 @@ const sportsTutorials: Tutorial[] = [
 ];
 
 const sportsResources: DownloadableResource[] = [
-    placeholderResource,
+    findResource("High performance"),
     findResource("Actividad física"),
     findResource("Consejo y metas diarias"),
     findResource("ima Score"),
     findResource("Bitácora ima"),
     findResource("Sueño"),
-    placeholderResource,
+    findResource("Plato macros"),
     findResource("Consumo de agua"),
     findResource("Pasos diarios"),
     findResource("Métricas y hábitos personalizados"),
