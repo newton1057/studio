@@ -219,6 +219,17 @@ healthResources[7] = {
     description: "antecedentes",
 };
 
+const postOpVideoContent = {
+  mainVideo: {
+    title: "Bienvenido a tu camino de bienestar con ima",
+    description: "Descubre cómo pequeños pasos pueden transformar tu salud.",
+    imageUrl: "https://i.ytimg.com/vi/fnUOdFE3b_8/hqdefault.jpg",
+    videoUrl: "https://youtu.be/fnUOdFE3b_8"
+  },
+  tutorials: healthTutorials.slice(0, 15),
+  resources: healthResources,
+};
+
 const pathwaysData: Pathway[] = [
   {
     id: "health",
@@ -226,16 +237,7 @@ const pathwaysData: Pathway[] = [
     icon: Stethoscope,
     description: "cuidados, rutinas y pasos para tu recuperación",
     image: PlaceHolderImages.find(img => img.id === 'healthy-food')!,
-    videoContent: {
-      mainVideo: {
-        title: "Bienvenido a tu camino de bienestar con ima",
-        description: "Descubre cómo pequeños pasos pueden transformar tu salud.",
-        imageUrl: "https://i.ytimg.com/vi/fnUOdFE3b_8/hqdefault.jpg",
-        videoUrl: "https://youtu.be/fnUOdFE3b_8"
-      },
-      tutorials: healthTutorials.slice(0, 15),
-      resources: healthResources,
-    },
+    videoContent: postOpVideoContent,
   },
   {
     id: "diagnosis",
@@ -244,20 +246,14 @@ const pathwaysData: Pathway[] = [
     description: "ejercicios, guías y videos para tu recuperación",
     image: PlaceHolderImages.find(img => img.id === 'doctor-phone')!,
     videoContent: {
-      mainVideo: {
-        title: "Tu Guía Completa de Fisioterapia con ima",
-        description: "Inicia tu recuperación con ejercicios y consejos de expertos.",
-        imageUrl: "https://firebasestorage.googleapis.com/v0/b/docseb.firebasestorage.app/o/images%2Fimg-main.png?alt=media&token=8d2495b5-47e0-4743-9828-d8f967f677b1",
-      },
-      tutorials: Array.from({ length: 19 }, (_, i) => ({
-        title: `Tutorial de fisio ${i + 1}`,
-        duration: `${Math.floor(Math.random() * 5) + 3}:${Math.floor(Math.random() * 60).toString().padStart(2, '0')}`,
-        imageUrl: `https://picsum.photos/seed/tut-physio-${i}/400/225`,
-      })),
-      resources: Array.from({ length: 19 }, (_, i) => ({
-        title: `Rutina de fisioterapia ${i + 1}`,
-        description: `PDF con la rutina de ejercicios para la semana ${i + 1}.`
-      })),
+        mainVideo: {
+            title: "Tu Guía Completa de Fisioterapia con ima",
+            description: "Inicia tu recuperación con ejercicios y consejos de expertos.",
+            imageUrl: "https://i.ytimg.com/vi/fnUOdFE3b_8/hqdefault.jpg",
+            videoUrl: "https://youtu.be/fnUOdFE3b_8"
+        },
+        tutorials: healthTutorials.slice(0, 15),
+        resources: healthResources,
     },
   },
   {
@@ -267,20 +263,14 @@ const pathwaysData: Pathway[] = [
     description: "entrenamientos, consejos y planes para mejorar tu rendimiento",
     image: PlaceHolderImages.find(img => img.id === 'runners')!,
     videoContent: {
-      mainVideo: {
-        title: "Alcanza tu Máximo Rendimiento Deportivo con ima",
-        description: "Descubre estrategias y planes para superar tus metas.",
-        imageUrl: "https://firebasestorage.googleapis.com/v0/b/docseb.firebasestorage.app/o/images%2Fimg-main.png?alt=media&token=8d2495b5-47e0-4743-9828-d8f967f677b1",
-      },
-      tutorials: Array.from({ length: 22 }, (_, i) => ({
-        title: `Tutorial deportivo ${i + 1}`,
-        duration: `${Math.floor(Math.random() * 8) + 2}:${Math.floor(Math.random() * 60).toString().padStart(2, '0')}`,
-        imageUrl: `https://picsum.photos/seed/tut-sports-${i}/400/225`,
-      })),
-      resources: Array.from({ length: 22 }, (_, i) => ({
-        title: `Plan de entrenamiento ${i + 1}`,
-        description: `PDF con el plan de entrenamiento para el día ${i + 1}.`
-      })),
+        mainVideo: {
+            title: "Alcanza tu Máximo Rendimiento Deportivo con ima",
+            description: "Descubre estrategias y planes para superar tus metas.",
+            imageUrl: "https://i.ytimg.com/vi/fnUOdFE3b_8/hqdefault.jpg",
+            videoUrl: "https://youtu.be/fnUOdFE3b_8"
+        },
+        tutorials: healthTutorials.slice(0, 15),
+        resources: healthResources,
     },
   },
 ];
