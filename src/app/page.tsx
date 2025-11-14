@@ -25,6 +25,7 @@ interface Tutorial {
   duration: string;
   imageUrl: string;
   videoUrl?: string;
+  placeholder?: boolean;
 }
 
 interface DownloadableResource {
@@ -69,98 +70,98 @@ healthTutorials[0] = {
 
 healthTutorials[1] = {
     title: "Tratamientos activos",
-    duration: "0:15",
+    duration: "0-15",
     imageUrl: "https://i.ytimg.com/vi/2rIVzmtQF9c/hqdefault.jpg",
     videoUrl: "https://youtube.com/shorts/2rIVzmtQF9c"
 };
 
 healthTutorials[2] = {
     title: "Bitácora ima",
-    duration: "0:15",
+    duration: "0-15",
     imageUrl: "https://i.ytimg.com/vi/2dSRrA9HuUA/hqdefault.jpg",
     videoUrl: "https://youtube.com/shorts/2dSRrA9HuUA"
 };
 
 healthTutorials[3] = {
     title: "Estudios y análisis",
-    duration: "0:15",
+    duration: "0-15",
     imageUrl: "https://i.ytimg.com/vi/164-3IKkgw4/hqdefault.jpg",
     videoUrl: "https://youtube.com/shorts/164-3IKkgw4"
 };
 
 healthTutorials[4] = {
     title: "Banderas de riesgo",
-    duration: "0:15",
+    duration: "0-15",
     imageUrl: "https://i.ytimg.com/vi/rPoZixLX3Vs/hqdefault.jpg",
     videoUrl: "https://youtube.com/shorts/rPoZixLX3Vs"
 };
 
 healthTutorials[5] = {
     title: "Preguntale a ima",
-    duration: "0:15",
+    duration: "0-15",
     imageUrl: "https://i.ytimg.com/vi/r8R29FTY_0Y/hqdefault.jpg",
     videoUrl: "https://youtube.com/shorts/r8R29FTY_0Y"
 };
 
 healthTutorials[6] = {
     title: "ima Score",
-    duration: "0:15",
+    duration: "0-15",
     imageUrl: "https://i.ytimg.com/vi/Z6Vqx2lwyRk/hqdefault.jpg",
     videoUrl: "https://youtube.com/shorts/Z6Vqx2lwyRk"
 };
 
 healthTutorials[7] = {
     title: "Sueño",
-    duration: "0:15",
+    duration: "0-15",
     imageUrl: "https://i.ytimg.com/vi/__P-BjWo3qw/hqdefault.jpg",
     videoUrl: "https://youtube.com/shorts/__P-BjWo3qw"
 };
 
 healthTutorials[8] = {
     title: "Consejo y metas diarias",
-    duration: "0:15",
+    duration: "0-15",
     imageUrl: "https://i.ytimg.com/vi/a_-mkc5Axbk/hqdefault.jpg",
     videoUrl: "https://youtube.com/shorts/a_-mkc5Axbk"
 };
 
 healthTutorials[9] = {
     title: "Suplementos y vitaminas",
-    duration: "0:15",
+    duration: "0-15",
     imageUrl: "https://i.ytimg.com/vi/c9RvAaxVhtw/hqdefault.jpg",
     videoUrl: "https://youtube.com/shorts/c9RvAaxVhtw"
 };
 
 healthTutorials[10] = {
     title: "Alergias",
-    duration: "0:15",
+    duration: "0-15",
     imageUrl: "https://i.ytimg.com/vi/RhRJVVKWJfo/hqdefault.jpg",
     videoUrl: "https://youtube.com/shorts/RhRJVVKWJfo"
 };
 
 healthTutorials[11] = {
     title: "Actividad física",
-    duration: "0:15",
+    duration: "0-15",
     imageUrl: "https://i.ytimg.com/vi/KKvGd2UlwJA/hqdefault.jpg",
     videoUrl: "https://youtube.com/shorts/KKvGd2UlwJA"
 };
 
 healthTutorials[12] = {
     title: "Consumo de agua",
-    duration: "0:15",
+    duration: "0-15",
     imageUrl: "https://i.ytimg.com/vi/nW05rLxU5c0/hqdefault.jpg",
     videoUrl: "https://youtube.com/shorts/nW05rLxU5c0"
 };
 
 healthTutorials[13] = {
     title: "Pasos diarios",
-    duration: "0:15",
+    duration: "0-15",
     imageUrl: "https://i.ytimg.com/vi/z_oYFuk9qic/hqdefault.jpg",
     videoUrl: "https://youtube.com/shorts/z_oYFuk9qic"
 };
 
 healthTutorials[14] = {
     title: "Árbol familiar",
-    duration: "0:15",
+    duration: "0-15",
     imageUrl: "https://i.ytimg.com/vi/aiQ37kIQ81Q/hqdefault.jpg",
     videoUrl: "https://youtube.com/shorts/aiQ37kIQ81Q"
 };
@@ -230,6 +231,27 @@ const postOpVideoContent = {
   resources: healthResources,
 };
 
+const findTutorial = (title: string) => healthTutorials.find(t => t.title === title)!;
+
+const physiotherapyTutorials: Tutorial[] = [
+    findTutorial("Tratamientos activos"),
+    findTutorial("Actividad física"),
+    findTutorial("Estudios y análisis"),
+    findTutorial("Cirugías y procedimientos"),
+    findTutorial("Banderas de riesgo"),
+    findTutorial("Bitácora ima"),
+    findTutorial("Preguntale a ima"),
+    findTutorial("ima Score"),
+    findTutorial("Consejo y metas diarias"),
+    findTutorial("Sueño"),
+    findTutorial("Suplementos y vitaminas"),
+    findTutorial("Alergias"),
+    { title: "Próximamente", duration: "0:00", imageUrl: "https://placehold.co/400x225/0E4B87/B9DDE8?text=Pr%C3%B3ximamente", placeholder: true },
+    findTutorial("Consumo de agua"),
+    findTutorial("Pasos diarios"),
+    findTutorial("Árbol familiar"),
+];
+
 const pathwaysData: Pathway[] = [
   {
     id: "health",
@@ -252,7 +274,7 @@ const pathwaysData: Pathway[] = [
             imageUrl: "https://i.ytimg.com/vi/fnUOdFE3b_8/hqdefault.jpg",
             videoUrl: "https://youtu.be/fnUOdFE3b_8"
         },
-        tutorials: healthTutorials.slice(0, 15),
+        tutorials: physiotherapyTutorials,
         resources: healthResources,
     },
   },
@@ -354,19 +376,19 @@ const VideoPathwayContent = ({ pathway, onBack }: { pathway: Pathway, onBack: ()
   
   const TutorialItem = ({ tutorial }: { tutorial: Tutorial }) => {
     const cardContent = (
-      <Card className="overflow-hidden group cursor-pointer transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_20px_rgba(42,151,176,0.7)]" style={{ borderRadius: '16px', border: '1px solid rgba(185, 221, 232, 0.4)' }}>
+      <Card className={`overflow-hidden group transition-all duration-300 ${tutorial.placeholder ? '' : 'cursor-pointer hover:scale-[1.03] hover:shadow-[0_0_20px_rgba(42,151,176,0.7)]'}`} style={{ borderRadius: '16px', border: '1px solid rgba(185, 221, 232, 0.4)' }}>
         <div className="relative aspect-video">
           <Image src={tutorial.imageUrl} alt={tutorial.title} fill className="object-cover" />
           <div className="absolute inset-0 flex items-center justify-center" style={{ backgroundColor: 'rgba(14, 75, 135, 0.55)'}}>
-            <PlayCircle className="w-12 h-12 text-white/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            {!tutorial.placeholder && <PlayCircle className="w-12 h-12 text-white/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />}
           </div>
           <div className="absolute bottom-2 right-2 bg-black/50 text-xs px-2 py-1 rounded-md" style={{color: '#F6A62A'}}>{tutorial.duration}</div>
         </div>
         <div className="p-4 transition-colors duration-300" style={{ background: 'linear-gradient(180deg, rgba(14,75,135,0.7) 0%, rgba(14,75,135,0.1) 100%)' }}>
           <h4 className="font-semibold truncate" style={{color: '#B9DDE8', fontSize: '18px'}}>{tutorial.title}</h4>
           <div className="flex items-center gap-2 mt-1 text-sm text-muted-foreground">
-            <Video className="w-4 h-4 text-muted-foreground" />
-            <span className="text-muted-foreground">{tutorial.duration}</span>
+            {!tutorial.placeholder && <Video className="w-4 h-4 text-muted-foreground" />}
+            <span className="text-muted-foreground">{!tutorial.placeholder ? tutorial.duration : ''}</span>
           </div>
         </div>
       </Card>
