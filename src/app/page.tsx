@@ -246,7 +246,7 @@ const physiotherapyTutorials: Tutorial[] = [
     findTutorial("Sueño"),
     findTutorial("Suplementos y vitaminas"),
     findTutorial("Alergias"),
-    { title: "Próximamente", duration: "0:00", imageUrl: "https://placehold.co/400x225/0E4B87/B9DDE8?text=Pr%C3%B3ximamente", placeholder: true },
+    { title: "Métricas y hábitos personalizados", duration: "0:15", imageUrl: "https://i.ytimg.com/vi/kdYVc3YkSzs/hqdefault.jpg", videoUrl: "https://youtube.com/shorts/kdYVc3YkSzs" },
     findTutorial("Consumo de agua"),
     findTutorial("Pasos diarios"),
     findTutorial("Árbol familiar"),
