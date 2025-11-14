@@ -56,6 +56,15 @@ interface Pathway {
   };
 }
 
+const findResource = (title: string) => healthResources.find(t => t.title === title)!;
+
+const placeholderTutorial: Tutorial = {
+  title: "Próximamente",
+  duration: "0:00",
+  imageUrl: `https://picsum.photos/seed/placeholder/400/225`,
+  placeholder: true,
+};
+
 const healthTutorials: Tutorial[] = Array.from({ length: 15 }, (_, i) => ({
     title: `Tutorial de salud ${i + 1}`,
     duration: `${Math.floor(Math.random() * 5) + 1}:${Math.floor(Math.random() * 60).toString().padStart(2, '0')}`,
@@ -98,7 +107,7 @@ healthTutorials[4] = {
 };
 
 healthTutorials[5] = {
-    title: "Preguntale a ima",
+    title: "Pregúntale a ima",
     duration: "0-15",
     imageUrl: "https://i.ytimg.com/vi/r8R29FTY_0Y/hqdefault.jpg",
     videoUrl: "https://youtube.com/shorts/r8R29FTY_0Y"
@@ -181,7 +190,7 @@ const healthResources: DownloadableResource[] = [
     url: "https://drive.google.com/file/d/1h9YI8AfV5MpRhowAUn4pehJBc3lVdvYg/view?usp=drive_link" 
   },
   {
-    title: "Preguntale a ima",
+    title: "Pregúntale a ima",
     url: "https://drive.google.com/file/d/1JU9XpXaTptAjWPgRQFZSeJDZfRJhFKSK/view?usp=drive_link",
     description: "resolución de dudas sobre cuidados y síntomas",
   },
@@ -237,7 +246,6 @@ const healthResources: DownloadableResource[] = [
   },
 ];
 
-const findResource = (title: string) => healthResources.find(t => t.title === title)!;
 
 const postOpVideoContent = {
   mainVideo: {
@@ -250,7 +258,7 @@ const postOpVideoContent = {
   resources: [
     findResource("Bitácora ima"),
     findResource("Banderas de riesgo"),
-    findResource("Preguntale a ima"),
+    findResource("Pregúntale a ima"),
     findResource("Sueño"),
     findResource("Consejo y metas diarias"),
     findResource("Actividad física"),
@@ -273,7 +281,7 @@ const physiotherapyTutorials: Tutorial[] = [
     findTutorial("Cirugías y procedimientos"),
     findTutorial("Banderas de riesgo"),
     findTutorial("Bitácora ima"),
-    findTutorial("Preguntale a ima"),
+    findTutorial("Pregúntale a ima"),
     findTutorial("ima Score"),
     findTutorial("Consejo y metas diarias"),
     findTutorial("Sueño"),
@@ -296,17 +304,10 @@ const physiotherapyResources: DownloadableResource[] = [
     findResource("Consumo de agua"),
     findResource("Pasos diarios"),
     findResource("Métricas y hábitos personalizados"),
-    findResource("Preguntale a ima"),
+    findResource("Pregúntale a ima"),
     findResource("Banderas de riesgo"),
     findResource("Árbol familiar"),
 ].filter(Boolean) as DownloadableResource[];
-
-const placeholderTutorial: Tutorial = {
-  title: "Próximamente",
-  duration: "0:00",
-  imageUrl: `https://picsum.photos/seed/placeholder/400/225`,
-  placeholder: true,
-};
 
 const sportsTutorials: Tutorial[] = [
     { title: "High Performance", duration: "0:15", imageUrl: "https://i.ytimg.com/vi/agpgRBWMKQ8/hqdefault.jpg", videoUrl: "https://youtube.com/shorts/agpgRBWMKQ8?feature=share" },
@@ -322,7 +323,7 @@ const sportsTutorials: Tutorial[] = [
     findTutorial("Consumo de agua"),
     findTutorial("Pasos diarios"),
     physiotherapyTutorials[12], // Métricas y hábitos personalizados
-    findTutorial("Preguntale a ima"),
+    findTutorial("Pregúntale a ima"),
     findTutorial("Banderas de riesgo"),
     findTutorial("Alergias"),
     findTutorial("Cirugías y procedimientos"),
@@ -340,7 +341,7 @@ const sportsResources: DownloadableResource[] = [
     findResource("Consumo de agua"),
     findResource("Pasos diarios"),
     findResource("Métricas y hábitos personalizados"),
-    findResource("Preguntale a ima"),
+    findResource("Pregúntale a ima"),
     findResource("Banderas de riesgo"),
     findResource("Árbol familiar"),
 ].filter(Boolean) as DownloadableResource[];
