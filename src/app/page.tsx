@@ -269,8 +269,8 @@ const pathwaysData: Pathway[] = [
     image: PlaceHolderImages.find(img => img.id === 'doctor-phone')!,
     videoContent: {
         mainVideo: {
-            title: "Tu Guía Completa de Fisioterapia con ima",
-            description: "Inicia tu recuperación con ejercicios y consejos de expertos.",
+            title: "Bienvenido a tu camino de bienestar con ima",
+            description: "Descubre cómo pequeños pasos pueden transformar tu salud.",
             imageUrl: "https://i.ytimg.com/vi/fnUOdFE3b_8/hqdefault.jpg",
             videoUrl: "https://youtu.be/fnUOdFE3b_8"
         },
@@ -286,8 +286,8 @@ const pathwaysData: Pathway[] = [
     image: PlaceHolderImages.find(img => img.id === 'runners')!,
     videoContent: {
         mainVideo: {
-            title: "Alcanza tu Máximo Rendimiento Deportivo con ima",
-            description: "Descubre estrategias y planes para superar tus metas.",
+            title: "Bienvenido a tu camino de bienestar con ima",
+            description: "Descubre cómo pequeños pasos pueden transformar tu salud.",
             imageUrl: "https://i.ytimg.com/vi/fnUOdFE3b_8/hqdefault.jpg",
             videoUrl: "https://youtu.be/fnUOdFE3b_8"
         },
