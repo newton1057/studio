@@ -32,6 +32,7 @@ interface DownloadableResource {
   title: string;
   description: string;
   url?: string;
+  placeholder?: boolean;
 }
 
 interface MainVideo {
@@ -232,6 +233,7 @@ const postOpVideoContent = {
 };
 
 const findTutorial = (title: string) => healthTutorials.find(t => t.title === title)!;
+const findResource = (title: string) => healthResources.find(t => t.title === title)!;
 
 const physiotherapyTutorials: Tutorial[] = [
     findTutorial("Tratamientos activos"),
@@ -251,6 +253,21 @@ const physiotherapyTutorials: Tutorial[] = [
     findTutorial("Pasos diarios"),
     findTutorial("Árbol familiar"),
 ];
+
+const physiotherapyResources: DownloadableResource[] = [
+    findResource("Bitácora ima"),
+    findResource("Actividad física"),
+    { title: "Próximamente", description: "Estamos trabajando en nuevas herramientas para ti.", placeholder: true },
+    findResource("Preguntale a ima"),
+    { title: "ima Score", description: "Tu calificación de salud personalizada.", url: "https://drive.google.com/file/d/1f70f69022c4f691b059f3b1406f36616/view?usp=sharing" },
+    findResource("Consejo y metas diarias"),
+    findResource("Sueño"),
+    { title: "Próximamente", description: "Estamos trabajando en nuevas herramientas para ti.", placeholder: true },
+    findResource("Consumo de agua"),
+    findResource("Pasos diarios"),
+    findResource("Árbol familiar"),
+];
+
 
 const pathwaysData: Pathway[] = [
   {
@@ -275,7 +292,7 @@ const pathwaysData: Pathway[] = [
             videoUrl: "https://youtu.be/fnUOdFE3b_8"
         },
         tutorials: physiotherapyTutorials,
-        resources: healthResources,
+        resources: physiotherapyResources,
     },
   },
   {
@@ -407,7 +424,7 @@ const VideoPathwayContent = ({ pathway, onBack }: { pathway: Pathway, onBack: ()
 
   const ResourceItem = ({ resource }: { resource: DownloadableResource }) => {
     const cardContent = (
-      <Card className="group flex flex-col sm:flex-row items-start sm:items-center justify-between p-6 transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_20px_rgba(42,151,176,0.8)]"
+      <Card className={`group flex flex-col sm:flex-row items-start sm:items-center justify-between p-6 transition-all duration-300 ${resource.placeholder ? '' : 'hover:scale-[1.03] hover:shadow-[0_0_20px_rgba(42,151,176,0.8)]'}`}
       style={{
         background: 'rgba(185,221,232,0.2)',
         backdropFilter: 'blur(8px)',
@@ -423,10 +440,12 @@ const VideoPathwayContent = ({ pathway, onBack }: { pathway: Pathway, onBack: ()
             <p className="text-sm text-white/80" style={{ fontSize: '15px' }}>{resource.description}</p>
           </div>
         </div>
-        <Button size="sm" className="w-full sm:w-auto mt-4 sm:mt-0 shadow-md text-primary-foreground" style={{ backgroundColor: '#F6A62A' }}>
-          Descargar
-          <Download className="ml-2 h-4 w-4" />
-        </Button>
+        {!resource.placeholder &&
+          <Button size="sm" className="w-full sm:w-auto mt-4 sm:mt-0 shadow-md text-primary-foreground" style={{ backgroundColor: '#F6A62A' }}>
+            Descargar
+            <Download className="ml-2 h-4 w-4" />
+          </Button>
+        }
       </Card>
     );
 
