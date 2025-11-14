@@ -56,15 +56,6 @@ interface Pathway {
   };
 }
 
-const findResource = (title: string) => healthResources.find(t => t.title === title)!;
-
-const placeholderTutorial: Tutorial = {
-  title: "Próximamente",
-  duration: "0:00",
-  imageUrl: `https://picsum.photos/seed/placeholder/400/225`,
-  placeholder: true,
-};
-
 const healthTutorials: Tutorial[] = Array.from({ length: 15 }, (_, i) => ({
     title: `Tutorial de salud ${i + 1}`,
     duration: `${Math.floor(Math.random() * 5) + 1}:${Math.floor(Math.random() * 60).toString().padStart(2, '0')}`,
@@ -246,6 +237,7 @@ const healthResources: DownloadableResource[] = [
   },
 ];
 
+const findResource = (title: string) => healthResources.find(t => t.title === title)!;
 
 const postOpVideoContent = {
   mainVideo: {
@@ -294,18 +286,16 @@ const physiotherapyTutorials: Tutorial[] = [
 ];
 
 const physiotherapyResources: DownloadableResource[] = [
-    placeholderResource,
-    findResource("Actividad física"),
-    findResource("Consejo y metas diarias"),
-    findResource("ima Score"),
     findResource("Bitácora ima"),
+    findResource("Actividad física"),
+    placeholderResource,
+    findResource("Pregúntale a ima"),
+    findResource("ima Score"),
+    findResource("Consejo y metas diarias"),
     findResource("Sueño"),
     placeholderResource,
     findResource("Consumo de agua"),
     findResource("Pasos diarios"),
-    findResource("Métricas y hábitos personalizados"),
-    findResource("Pregúntale a ima"),
-    findResource("Banderas de riesgo"),
     findResource("Árbol familiar"),
 ].filter(Boolean) as DownloadableResource[];
 
