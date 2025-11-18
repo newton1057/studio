@@ -56,7 +56,7 @@ interface Pathway {
   };
 }
 
-const healthTutorials: Tutorial[] = Array.from({ length: 15 }, (_, i) => ({
+const healthTutorials: Tutorial[] = Array.from({ length: 18 }, (_, i) => ({
     title: `Tutorial de salud ${i + 1}`,
     duration: `${Math.floor(Math.random() * 5) + 1}:${Math.floor(Math.random() * 60).toString().padStart(2, '0')}`,
     imageUrl: `https://picsum.photos/seed/tut-health-${i}/400/225`,
@@ -98,73 +98,94 @@ healthTutorials[4] = {
 };
 
 healthTutorials[5] = {
+    title: "Diagnóstico de enfermedades",
+    duration: "0:15",
+    imageUrl: "https://i.ytimg.com/vi/iA_RWa0Iq0E/hqdefault.jpg",
+    videoUrl: "https://youtube.com/shorts/iA_RWa0Iq0E?feature=share"
+};
+
+healthTutorials[6] = {
     title: "Pregúntale a ima",
     duration: "0-15",
     imageUrl: "https://i.ytimg.com/vi/r8R29FTY_0Y/hqdefault.jpg",
     videoUrl: "https://youtube.com/shorts/r8R29FTY_0Y"
 };
 
-healthTutorials[6] = {
+healthTutorials[7] = {
     title: "ima Score",
     duration: "0-15",
     imageUrl: "https://i.ytimg.com/vi/Z6Vqx2lwyRk/hqdefault.jpg",
     videoUrl: "https://youtube.com/shorts/Z6Vqx2lwyRk"
 };
 
-healthTutorials[7] = {
+healthTutorials[8] = {
     title: "Sueño",
     duration: "0-15",
     imageUrl: "https://i.ytimg.com/vi/__P-BjWo3qw/hqdefault.jpg",
     videoUrl: "https://youtube.com/shorts/__P-BjWo3qw"
 };
 
-healthTutorials[8] = {
+healthTutorials[9] = {
     title: "Consejo y metas diarias",
     duration: "0-15",
     imageUrl: "https://i.ytimg.com/vi/a_-mkc5Axbk/hqdefault.jpg",
     videoUrl: "https://youtube.com/shorts/a_-mkc5Axbk"
 };
 
-healthTutorials[9] = {
+healthTutorials[10] = {
     title: "Suplementos y vitaminas",
     duration: "0-15",
     imageUrl: "https://i.ytimg.com/vi/c9RvAaxVhtw/hqdefault.jpg",
     videoUrl: "https://youtube.com/shorts/c9RvAaxVhtw"
 };
 
-healthTutorials[10] = {
+healthTutorials[11] = {
     title: "Alergias",
     duration: "0-15",
     imageUrl: "https://i.ytimg.com/vi/RhRJVVKWJfo/hqdefault.jpg",
     videoUrl: "https://youtube.com/shorts/RhRJVVKWJfo"
 };
 
-healthTutorials[11] = {
+healthTutorials[12] = {
     title: "Actividad física",
     duration: "0-15",
     imageUrl: "https://i.ytimg.com/vi/KKvGd2UlwJA/hqdefault.jpg",
     videoUrl: "https://youtube.com/shorts/KKvGd2UlwJA"
 };
 
-healthTutorials[12] = {
+healthTutorials[13] = {
     title: "Consumo de agua",
     duration: "0-15",
     imageUrl: "https://i.ytimg.com/vi/nW05rLxU5c0/hqdefault.jpg",
     videoUrl: "https://youtube.com/shorts/nW05rLxU5c0"
 };
 
-healthTutorials[13] = {
+healthTutorials[14] = {
     title: "Pasos diarios",
     duration: "0-15",
     imageUrl: "https://i.ytimg.com/vi/z_oYFuk9qic/hqdefault.jpg",
     videoUrl: "https://youtube.com/shorts/z_oYFuk9qic"
 };
 
-healthTutorials[14] = {
+healthTutorials[15] = {
     title: "Árbol familiar",
     duration: "0-15",
     imageUrl: "https://i.ytimg.com/vi/aiQ37kIQ81Q/hqdefault.jpg",
     videoUrl: "https://youtube.com/shorts/aiQ37kIQ81Q"
+};
+
+healthTutorials[16] = {
+    title: "Cuponera",
+    duration: "0:15",
+    imageUrl: "https://i.ytimg.com/vi/DeX-HOFmqUs/hqdefault.jpg",
+    videoUrl: "https://youtube.com/shorts/DeX-HOFmqUs?feature=share"
+};
+
+healthTutorials[17] = {
+    title: "Menú de sándwich",
+    duration: "0:15",
+    imageUrl: "https://i.ytimg.com/vi/tbIqMDGAjzI/hqdefault.jpg",
+    videoUrl: "https://youtube.com/shorts/tbIqMDGAjzI?feature=share"
 };
 
 const findTutorial = (title: string) => healthTutorials.find(t => t.title === title)!;
@@ -175,10 +196,10 @@ const healthResources: DownloadableResource[] = [
     url: "https://drive.google.com/file/d/13AqkNkl5axBnbTy54aB7uAYZcnkLm6KQ/view?usp=drive_link",
     description: "seguimiento general de evolución y registros médicos",
   },
-  { 
-    title: "Banderas de riesgo", 
-    description: "detección temprana de complicaciones", 
-    url: "https://drive.google.com/file/d/1h9YI8AfV5MpRhowAUn4pehJBc3lVdvYg/view?usp=drive_link" 
+  {
+    title: "Banderas de riesgo",
+    description: "detección temprana de complicaciones",
+    url: "https://drive.google.com/file/d/1h9YI8AfV5MpRhowAUn4pehJBc3lVdvYg/view?usp=drive_link"
   },
   {
     title: "Pregúntale a ima",
@@ -246,7 +267,11 @@ const postOpVideoContent = {
     imageUrl: "https://i.ytimg.com/vi/fnUOdFE3b_8/hqdefault.jpg",
     videoUrl: "https://youtu.be/fnUOdFE3b_8"
   },
-  tutorials: healthTutorials.slice(0, 15),
+  tutorials: [
+      ...healthTutorials.slice(0, 16),
+      findTutorial("Cuponera"),
+      findTutorial("Menú de sándwich"),
+  ],
   resources: [
     findResource("Bitácora ima"),
     findResource("Banderas de riesgo"),
@@ -312,7 +337,7 @@ const sportsTutorials: Tutorial[] = [
     { title: "Plato de macros", duration: "0:15", imageUrl: "https://i.ytimg.com/vi/aZlHc9gi5Ck/hqdefault.jpg", videoUrl: "https://youtube.com/shorts/aZlHc9gi5Ck" },
     findTutorial("Consumo de agua"),
     findTutorial("Pasos diarios"),
-    physiotherapyTutorials[12], // Métricas y hábitos personalizados
+    { title: "Métricas y hábitos personalizados", duration: "0:15", imageUrl: "https://i.ytimg.com/vi/kdYVc3YkSzs/hqdefault.jpg", videoUrl: "https://youtube.com/shorts/kdYVc3YkSzs" },
     findTutorial("Pregúntale a ima"),
     findTutorial("Banderas de riesgo"),
     findTutorial("Alergias"),
