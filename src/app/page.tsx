@@ -352,6 +352,8 @@ const physiotherapyResources: DownloadableResource[] = [
     findResource("Consumo de agua"),
     findResource("Pasos diarios"),
     findResource("Árbol familiar"),
+    findResource("Cuponera"),
+    findResource("Menú de sándwich")
 ].filter(Boolean) as DownloadableResource[];
 
 const sportsTutorials: Tutorial[] = [
