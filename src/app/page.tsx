@@ -319,6 +319,9 @@ const placeholderResource: DownloadableResource = {
 };
 
 const physiotherapyTutorials: Tutorial[] = [
+    findTutorial("Árbol familiar"),
+    findTutorial("Cuponera"),
+    findTutorial("Menú de sándwich"),
     findTutorial("Tratamientos activos"),
     findTutorial("Actividad física"),
     findTutorial("Diagnóstico de enfermedades"),
@@ -335,7 +338,6 @@ const physiotherapyTutorials: Tutorial[] = [
     { title: "Métricas y hábitos personalizados", duration: "0:15", imageUrl: "https://i.ytimg.com/vi/kdYVc3YkSzs/hqdefault.jpg", videoUrl: "https://youtube.com/shorts/kdYVc3YkSzs" },
     findTutorial("Consumo de agua"),
     findTutorial("Pasos diarios"),
-    findTutorial("Árbol familiar"),
 ];
 
 const physiotherapyResources: DownloadableResource[] = [
@@ -752,3 +754,6 @@ export default function Home() {
 
     
 
+
+
+    
