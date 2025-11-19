@@ -244,12 +244,12 @@ const healthResources: DownloadableResource[] = [
     url: "https://drive.google.com/file/d/1sW1ubTWQxt1_Gvb94osPnHTjaRGYeU-Z/view?usp=drive_link"
   },
   {
-    title: "High performance",
+    title: "High Performance",
     url: "https://drive.google.com/file/d/1ADwIf-c81RMCAqzv2aHi6TBQQcMKroAn/view?usp=drive_link",
     description: "función central para entrenamiento y rendimiento",
   },
   {
-    title: "Plato macros",
+    title: "Plato de macros",
     url: "https://drive.google.com/file/d/1H2D1Q4v_zfCv0nf_XK66DcHg5rXodFLH/view?usp=drive_link",
     description: "control de calorías y nutrición",
   },
@@ -293,17 +293,44 @@ const postOpVideoContent = {
       findTutorial("Árbol familiar"),
       findTutorial("Cuponera"),
       findTutorial("Menú de sándwich"),
-  ],
+  ].filter(Boolean),
   resources: [
-    findResource("Bitácora ima"),
-    findResource("Banderas de riesgo"),
-    findResource("Pregúntale a ima"),
-    findResource("Sueño"),
-    findResource("Consejo y metas diarias"),
-    findResource("Actividad física"),
-    findResource("Consumo de agua"),
-    findResource("Pasos diarios"),
-    findResource("Árbol familiar"),
+    {
+      ...findResource("Bitácora ima"),
+      description: "Historial completo del proceso de recuperación."
+    },
+    {
+      ...findResource("Banderas de riesgo"),
+      description: "Identificación de enfermedades y ayuda al control de estás."
+    },
+    {
+      ...findResource("Pregúntale a ima"),
+      description: "Respuestas según tus síntomas y situación post-quirúrgica."
+    },
+    {
+      ...findResource("Sueño"),
+      description: "Valioso para evaluar horas y calidad del descanso tras la operación."
+    },
+    {
+      ...findResource("Consejo y metas diarias"),
+      description: "Pequeñas tareas o hábitos post-quirúrgicos."
+    },
+    {
+      ...findResource("Actividad física"),
+      description: "Movilidad progresiva post-cirugía."
+    },
+    {
+      ...findResource("Consumo de agua"),
+      description: "Registro de ingesta diaria de agua."
+    },
+    {
+      ...findResource("Pasos diarios"),
+      description: "Pasos diarios que muestran avance en recuperación."
+    },
+    {
+      ...findResource("Árbol familiar"),
+      description: "Antecedentes hereditarios."
+    },
     findResource("Cuponera"),
     findResource("Menú de sándwich")
   ].filter(Boolean) as DownloadableResource[],
@@ -335,17 +362,27 @@ const physiotherapyTutorials: Tutorial[] = [
     findTutorial("Consumo de agua"),
     findTutorial("Pasos diarios"),
     findTutorial("Árbol familiar"),
-];
+].filter(Boolean);
 
 const physiotherapyResources: DownloadableResource[] = [
     findResource("Bitácora ima"),
     findResource("Actividad física"),
-    findResource("Banderas de riesgo"),
+    {
+      ...findResource("Banderas de riesgo"),
+      title: "Banderas de riesgo",
+      description: "detección temprana de complicaciones",
+      url: "https://drive.google.com/file/d/1h9YI8AfV5MpRhowAUn4pehJBc3lVdvYg/view?usp=drive_link"
+    },
     findResource("Pregúntale a ima"),
     findResource("ima Score"),
     findResource("Consejo y metas diarias"),
     findResource("Sueño"),
-    findResource("Métricas y hábitos personalizados"),
+    {
+      ...findResource("Métricas y hábitos personalizados"),
+      title: "Métricas y hábitos personalizados",
+      description: "rango de movilidad",
+      url: "https://drive.google.com/file/d/1sW1ubTWQxt1_Gvb94osPnHTjaRGYeU-Z/view?usp=drive_link"
+    },
     findResource("Consumo de agua"),
     findResource("Pasos diarios"),
     findResource("Árbol familiar"),
@@ -354,6 +391,7 @@ const physiotherapyResources: DownloadableResource[] = [
 ].filter(Boolean) as DownloadableResource[];
 
 const sportsTutorials: Tutorial[] = [
+    findTutorial("High Performance"),
     findTutorial("Actividad física"),
     findTutorial("Consejo y metas diarias"),
     findTutorial("ima Score"),
@@ -362,7 +400,6 @@ const sportsTutorials: Tutorial[] = [
     findTutorial("Suplementos y vitaminas"),
     findTutorial("Tratamientos activos"),
     findTutorial("Sueño"),
-    findTutorial("High Performance"),
     findTutorial("Consumo de agua"),
     findTutorial("Pasos diarios"),
     findTutorial("Métricas y hábitos personalizados"),
@@ -372,16 +409,16 @@ const sportsTutorials: Tutorial[] = [
     findTutorial("Cirugías y procedimientos"),
     findTutorial("Árbol familiar"),
     findTutorial("Plato de macros"),
-];
+].filter(Boolean);
 
 const sportsResources: DownloadableResource[] = [
-    findResource("High performance"),
+    findResource("High Performance"),
     findResource("Actividad física"),
     findResource("Consejo y metas diarias"),
     findResource("ima Score"),
     findResource("Bitácora ima"),
     findResource("Sueño"),
-    findResource("Plato macros"),
+    findResource("Plato de macros"),
     findResource("Consumo de agua"),
     findResource("Pasos diarios"),
     findResource("Métricas y hábitos personalizados"),
