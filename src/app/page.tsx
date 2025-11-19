@@ -407,8 +407,11 @@ const sportsTutorials: Tutorial[] = [
     findTutorial("Pregúntale a ima"),
     findTutorial("Banderas de riesgo"),
     findTutorial("Alergias"),
+    findTutorial("Diagnóstico de enfermedades"),
     findTutorial("Cirugías y procedimientos"),
     findTutorial("Árbol familiar"),
+    findTutorial("Cuponera"),
+    findTutorial("Menú de sándwich"),
 ].filter(Boolean);
 
 const sportsResources: DownloadableResource[] = [
