@@ -461,8 +461,8 @@ const pathwaysData: Pathway[] = [
     image: PlaceHolderImages.find(img => img.id === 'doctor-phone')!,
     videoContent: {
         mainVideo: {
-            title: "Bienvenido a tu camino de bienestar con ima",
-            description: "Descubre cómo pequeños pasos pueden transformar tu salud.",
+            title: "Inicio de tu proceso de rehabilitación física",
+            description: "Accede a las herramientas necesarias para dar seguimiento adecuado a tu recuperación",
             imageUrl: "https://i.ytimg.com/vi/fnUOdFE3b_8/hqdefault.jpg",
             videoUrl: "https://youtu.be/fnUOdFE3b_8"
         },
