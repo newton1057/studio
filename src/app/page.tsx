@@ -434,6 +434,8 @@ const sportsResources: DownloadableResource[] = [
     findResource("Pregúntale a ima"),
     findResource("Banderas de riesgo"),
     findResource("Árbol familiar"),
+    findResource("Cuponera"),
+    findResource("Menú de sándwich"),
 ].filter(Boolean) as DownloadableResource[];
 
 const pathwaysData: Pathway[] = [
@@ -804,5 +806,7 @@ export default function Home() {
     
 
 
+
+    
 
     
